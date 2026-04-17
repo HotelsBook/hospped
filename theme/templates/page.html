@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="max-w-4xl mx-auto px-4 py-12">
+  <h1 class="text-3xl font-extrabold text-hospped-primary mb-6">{{ page.title }}</h1>
+  <article class="prose prose-lg max-w-none text-hospped-text leading-relaxed
+                  prose-headings:text-hospped-primary
+                  prose-a:text-hospped-accent prose-a:no-underline prose-a:hover:text-hospped-accentHover
+                  prose-strong:text-hospped-primary
+                  prose-li:marker:text-hospped-accent">
+    {{ page.content }}
+  </article>
+</section>
+{% endblock %}

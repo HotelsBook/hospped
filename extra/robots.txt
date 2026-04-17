@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+Disallow: /admin/
+Disallow: /drafts/
+Disallow: /theme/
+Disallow: /*.json$
+Disallow: /*.py$
+
+Sitemap: https://hotelsbook.github.io/hospped/sitemap.xml
