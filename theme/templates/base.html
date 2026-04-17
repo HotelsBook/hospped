@@ -51,16 +51,16 @@
         <span class="text-xs text-hospped-textLight self-end mb-0.5">by HotelsBook</span>
       </a>
       
-      <!-- Menu Desktop: usa MENUITEMS do pelicanconf.py -->
+      <!-- Menu Desktop -->
       <nav class="hidden md:flex gap-6 text-sm font-medium text-hospped-textLight">
-        {% for title, link in MENUITEMS %}
-          <a href="{{ link }}" class="hover:text-hospped-primary transition">{{ title }}</a>
-        {% endfor %}
+      {% for title, link in MENUITEMS %}
+      <a href="{{ SITEURL }}{{ link }}" class="hover:text-hospped-primary transition">{{ title }}</a>
+      {% endfor %}
       </nav>
-      
-      <!-- CTA: link absoluto que Pelican converte -->
-      <a href="/contato.html" class="hidden md:inline-block bg-hospped-accent text-hospped-textOnAccent font-semibold px-4 py-2 rounded-md text-sm hover:bg-hospped-accentHover transition">
-        Fale Conosco
+
+      <!-- CTA -->
+      <a href="{{ SITEURL }}/contato.html" class="hidden md:inline-block bg-hospped-accent text-hospped-textOnAccent font-semibold px-4 py-2 rounded-md text-sm hover:bg-hospped-accentHover transition">
+      Fale Conosco
       </a>
       
       <!-- Mobile Menu Button -->
@@ -73,32 +73,32 @@
   <!-- Main -->
   <main class="flex-grow">{% block content %}{% endblock %}</main>
 
-  <!-- Footer: links absolutos consistentes -->
-  <footer class="bg-hospped-primary text-white py-10">
-    <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-8 text-sm">
-      <div>
-        <div class="font-extrabold text-white mb-2">Hos<span class="text-hospped-accent">pp</span>ed</div>
-        <p class="text-emerald-100/80">Gestão inteligente de viagens corporativas e acadêmicas.</p>
-      </div>
-      <div>
-        <div class="font-bold text-emerald-100 mb-2">Serviços</div>
-        <ul class="space-y-1 text-emerald-100/80">
-          <li><a href="/servicos.html" class="hover:text-white">Viagens Corporativas</a></li>
-          <li><a href="/servicos.html" class="hover:text-white">Mobilidade Acadêmica</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="font-bold text-emerald-100 mb-2">Contato</div>
-        <ul class="space-y-1 text-emerald-100/80">
-          <li><a href="/contato.html" class="hover:text-white">Solicitar Cotação</a></li>
-          <li><a href="mailto:contato@hospped.com.br" class="hover:text-white">contato@hospped.com.br</a></li>
-        </ul>
-      </div>
+  <!-- Footer -->
+<footer class="bg-hospped-primary text-white py-10">
+  <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-8 text-sm">
+    <div>
+      <div class="font-extrabold text-white mb-2">Hos<span class="text-hospped-accent">pp</span>ed</div>
+      <p class="text-emerald-100/80">Gestão inteligente de viagens corporativas e acadêmicas.</p>
     </div>
-    <div class="max-w-7xl mx-auto px-4 mt-8 pt-6 border-t border-emerald-700/30 text-center text-xs text-emerald-200/70">
-      &copy; 2026 Hospped by HotelsBook.
+    <div>
+      <div class="font-bold text-emerald-100 mb-2">Serviços</div>
+      <ul class="space-y-1 text-emerald-100/80">
+        <li><a href="{{ SITEURL }}/servicos.html" class="hover:text-white">Viagens Corporativas</a></li>
+        <li><a href="{{ SITEURL }}/servicos.html" class="hover:text-white">Mobilidade Acadêmica</a></li>
+      </ul>
     </div>
-  </footer>
+    <div>
+      <div class="font-bold text-emerald-100 mb-2">Contato</div>
+      <ul class="space-y-1 text-emerald-100/80">
+        <li><a href="{{ SITEURL }}/contato.html" class="hover:text-white">Solicitar Cotação</a></li>
+        <li><a href="mailto:contato@hospped.com.br" class="hover:text-white">contato@hospped.com.br</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="max-w-7xl mx-auto px-4 mt-8 pt-6 border-t border-emerald-700/30 text-center text-xs text-emerald-200/70">
+    &copy; 2026 Hospped by HotelsBook.
+  </div>
+</footer>
 
   <!-- Mobile Menu Script -->
   <script>
