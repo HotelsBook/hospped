@@ -43,24 +43,24 @@
   <header class="bg-white/95 shadow-sm sticky top-0 z-50 border-b border-hospped-primary/10">
     <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
       
-      <!-- Logo -->
-      <a href="./" class="flex items-center gap-1">
+      <!-- Logo: link absoluto que Pelican converte -->
+      <a href="/" class="flex items-center gap-1">
         <span class="text-xl font-extrabold">
           <span class="text-hospped-primary">Hos</span><span class="text-hospped-accent">pp</span><span class="text-hospped-primary">ed</span>
         </span>
         <span class="text-xs text-hospped-textLight self-end mb-0.5">by HotelsBook</span>
       </a>
       
-      <!-- Menu Desktop -->
+      <!-- Menu Desktop: usa MENUITEMS do pelicanconf.py -->
       <nav class="hidden md:flex gap-6 text-sm font-medium text-hospped-textLight">
         {% for title, link in MENUITEMS %}
-  <a href="{{ link }}" class="hover:text-hospped-primary transition">{{ title }}</a>
+          <a href="{{ link }}" class="hover:text-hospped-primary transition">{{ title }}</a>
         {% endfor %}
       </nav>
       
-      <!-- CTA -->
+      <!-- CTA: link absoluto que Pelican converte -->
       <a href="/contato.html" class="hidden md:inline-block bg-hospped-accent text-hospped-textOnAccent font-semibold px-4 py-2 rounded-md text-sm hover:bg-hospped-accentHover transition">
-       Fale Conosco
+        Fale Conosco
       </a>
       
       <!-- Mobile Menu Button -->
@@ -73,7 +73,7 @@
   <!-- Main -->
   <main class="flex-grow">{% block content %}{% endblock %}</main>
 
-  <!-- Footer -->
+  <!-- Footer: links absolutos consistentes -->
   <footer class="bg-hospped-primary text-white py-10">
     <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-8 text-sm">
       <div>
@@ -83,14 +83,14 @@
       <div>
         <div class="font-bold text-emerald-100 mb-2">Serviços</div>
         <ul class="space-y-1 text-emerald-100/80">
-          <li><a href="./servicos.html" class="hover:text-white">Viagens Corporativas</a></li>
-          <li><a href="./servicos.html" class="hover:text-white">Mobilidade Acadêmica</a></li>
+          <li><a href="/servicos.html" class="hover:text-white">Viagens Corporativas</a></li>
+          <li><a href="/servicos.html" class="hover:text-white">Mobilidade Acadêmica</a></li>
         </ul>
       </div>
       <div>
         <div class="font-bold text-emerald-100 mb-2">Contato</div>
         <ul class="space-y-1 text-emerald-100/80">
-          <li><a href="./contato.html" class="hover:text-white">Solicitar Cotação</a></li>
+          <li><a href="/contato.html" class="hover:text-white">Solicitar Cotação</a></li>
           <li><a href="mailto:contato@hospped.com.br" class="hover:text-white">contato@hospped.com.br</a></li>
         </ul>
       </div>

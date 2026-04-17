@@ -11,7 +11,7 @@ TIMEZONE = 'America/Fortaleza'
 DEFAULT_LANG = 'pt'
 MARKUP = ('md',)
 
-# CRÍTICO: Para GitHub Pages em subpasta
+# CRÍTICO: True para subpasta no GitHub Pages
 RELATIVE_URLS = True
 DISPLAY_PAGES_ON_MENU = False
 
@@ -36,7 +36,7 @@ COLORS = {
     'text_on_accent': '#333333',
 }
 
-# Menu com links RELATIVOS
+# Menu: links ABSOLUTOS (Pelican converte com RELATIVE_URLS=True)
 MENUITEMS = [
     ('Início', '/'),
     ('Serviços', '/servicos.html'),
@@ -62,13 +62,9 @@ AUTHOR_FEED_RSS = None
 
 DEFAULT_PAGINATION = 10
 
-# Configurações explícitas para páginas
-PAGE_URL = '{slug}/'
-PAGE_SAVE_AS = '{slug}/index.html'
-
-# Ou alternativamente (mais simples):
-# PAGE_URL = '{slug}.html'
-# PAGE_SAVE_AS = '{slug}.html'
+# ✅ CONFIGURAÇÃO CORRETA PARA ARQUIVOS FLAT
+PAGE_URL = '{slug}.html'
+PAGE_SAVE_AS = '{slug}.html'
 
 # Templates
 TEMPLATE_VISIBLE_SETTINGS = {
