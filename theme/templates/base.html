@@ -54,17 +54,13 @@
       <!-- Menu Desktop -->
       <nav class="hidden md:flex gap-6 text-sm font-medium text-hospped-textLight">
         {% for title, link in MENUITEMS %}
-          {% if link == './' %}
-            <a href="./" class="hover:text-hospped-primary transition">{{ title }}</a>
-          {% else %}
-            <a href="{{ link }}" class="hover:text-hospped-primary transition">{{ title }}</a>
-          {% endif %}
+  <a href="{{ link }}" class="hover:text-hospped-primary transition">{{ title }}</a>
         {% endfor %}
       </nav>
       
       <!-- CTA -->
-      <a href="./contato.html" class="hidden md:inline-block bg-hospped-accent text-hospped-textOnAccent font-semibold px-4 py-2 rounded-md text-sm hover:bg-hospped-accentHover transition">
-        Fale Conosco
+      <a href="/contato.html" class="hidden md:inline-block bg-hospped-accent text-hospped-textOnAccent font-semibold px-4 py-2 rounded-md text-sm hover:bg-hospped-accentHover transition">
+       Fale Conosco
       </a>
       
       <!-- Mobile Menu Button -->

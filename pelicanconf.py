@@ -38,10 +38,10 @@ COLORS = {
 
 # Menu com links RELATIVOS
 MENUITEMS = [
-    ('Início', './'),
-    ('Serviços', './servicos.html'),
-    ('Sobre', './sobre.html'),
-    ('Contato', './contato.html'),
+    ('Início', '/'),
+    ('Serviços', '/servicos.html'),
+    ('Sobre', '/sobre.html'),
+    ('Contato', '/contato.html'),
 ]
 
 # Arquivos estáticos
@@ -61,6 +61,14 @@ AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
 DEFAULT_PAGINATION = 10
+
+# Configurações explícitas para páginas
+PAGE_URL = '{slug}/'
+PAGE_SAVE_AS = '{slug}/index.html'
+
+# Ou alternativamente (mais simples):
+# PAGE_URL = '{slug}.html'
+# PAGE_SAVE_AS = '{slug}.html'
 
 # Templates
 TEMPLATE_VISIBLE_SETTINGS = {
