@@ -12,7 +12,7 @@ DEFAULT_LANG = 'pt'
 MARKUP = ('md',)
 
 # CRÍTICO: True para subpasta no GitHub Pages
-RELATIVE_URLS = True
+RELATIVE_URLS = False
 DISPLAY_PAGES_ON_MENU = False
 
 # Slugs
