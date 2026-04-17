@@ -24,8 +24,8 @@ Status: published
     <h1 class="text-4xl md:text-5xl font-bold mb-6">Gestão de viagens com <span class="text-[#D4AF37]">economia real</span> e <span class="text-[#D4AF37]">atendimento humano</span></h1>
     <p class="text-xl text-emerald-50/90 mb-10 max-w-3xl mx-auto">Negociamos diretamente com hotéis para oferecer tarifas exclusivas, sem burocracia de plataforma.</p>
     <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <a href="./contato.html" class="bg-[#D4AF37] hover:bg-[#b8962e] text-[#333333] font-bold py-4 px-10 rounded-lg transition shadow-lg">Solicitar Cotação Gratuita</a>
-      <a href="./servicos.html" class="border-2 border-white hover:bg-white hover:text-[#2A5D5E] font-semibold py-4 px-10 rounded-lg transition">Conhecer Serviços</a>
+      <a href="/contato.html" class="bg-[#D4AF37] hover:bg-[#b8962e] text-[#333333] font-bold py-4 px-10 rounded-lg transition shadow-lg">Solicitar Cotação Gratuita</a>
+      <a href="/servicos.html" class="border-2 border-white hover:bg-white hover:text-[#2A5D5E] font-semibold py-4 px-10 rounded-lg transition">Conhecer Serviços</a>
     </div>
     <p class="text-emerald-100/80 text-sm mt-6">Resposta em até 24 horas úteis • Sem compromisso</p>
   </div>
@@ -55,6 +55,6 @@ Status: published
   <div class="max-w-4xl mx-auto text-center">
     <h2 class="text-3xl font-bold mb-4">Pronto para otimizar suas viagens?</h2>
     <p class="text-emerald-50/90 mb-8">Solicite uma cotação e receba uma proposta em até 24h.</p>
-    <a href="./contato.html" class="bg-[#D4AF37] hover:bg-[#b8962e] text-[#333333] font-bold py-4 px-12 rounded-lg transition shadow-lg">Falar com um Especialista</a>
+    <a href="/contato.html" class="bg-[#D4AF37] hover:bg-[#b8962e] text-[#333333] font-bold py-4 px-12 rounded-lg transition shadow-lg">Falar com um Especialista</a>
   </div>
 </section>
