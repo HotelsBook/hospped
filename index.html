@@ -17,26 +17,78 @@
         <span class="logo-text">Hos<span class="pp-highlight">pp</span>ed</span>
         <span class="logo-tagline">by HotelsBook</span>
       </a>
-      <button class="mobile-menu-btn" aria-label="Abrir menu" aria-expanded="false">☰</button>
+      <button class="mobile-menu-btn" aria-label="Abrir menu" aria-expanded="false">&#9776;</button>
       <nav>
-  <ul>
-    <li><a href="index.html">Início</a></li>
-    <li><a href="servicos.html">Serviços</a></li>
-    <li><a href="sobre.html">Sobre</a></li>
-    <li><a href="contato.html">Contato</a></li>
-  </ul>
-</nav>
-<div class="user-actions">
-  <a href="#" class="btn-login" data-auth-trigger>Acessar conta</a>
-</div>
+        <ul>
+          <li><a href="index.html" class="active">Início</a></li>
+          <li><a href="servicos.html">Serviços</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </nav>
+      <div class="user-actions">
+        <a href="#" class="btn-login" data-auth-trigger>Acessar conta</a>
+      </div>
+    </div>
   </header>
 
-  <!-- Hero -->
-  <section class="hero">
+  <!-- Hero com Search Box -->
+  <section class="hero hero-with-search">
+    <!-- Imagem de fundo -->
+    <div class="hero-background" style="background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');"></div>
+    <div class="hero-overlay"></div>
+    
     <div class="hero-content">
       <h1>Gestão Inteligente de Viagens para Empresas e Instituições de Ensino</h1>
       <p>Atendimento humano, negociação direta e controle total de gastos. Economize até 30% em suas viagens corporativas e acadêmicas.</p>
-      <a href="contato.html" class="btn btn-large">Solicitar Proposta</a>
+    </div>
+
+    <!-- Search Box estilo OTA -->
+    <div class="search-box-container">
+      <form class="search-box" id="quickSearchForm" action="contato.html" method="GET">
+        <div class="search-field">
+          <label for="searchDestination">
+            <span class="search-label-icon">&#128205;</span>
+            <span class="search-label-text">Destino</span>
+          </label>
+          <input type="text" id="searchDestination" name="destination" placeholder="Para onde você vai?" class="search-input" required>
+        </div>
+        
+        <div class="search-field">
+          <label for="searchCheckIn">
+            <span class="search-label-icon">&#128197;</span>
+            <span class="search-label-text">Chegada</span>
+          </label>
+          <input type="date" id="searchCheckIn" name="checkIn" class="search-input" required>
+        </div>
+        
+        <div class="search-field">
+          <label for="searchCheckOut">
+            <span class="search-label-icon">&#128197;</span>
+            <span class="search-label-text">Saída</span>
+          </label>
+          <input type="date" id="searchCheckOut" name="checkOut" class="search-input" required>
+        </div>
+        
+        <div class="search-field">
+          <label for="searchGuests">
+            <span class="search-label-icon">&#128101;</span>
+            <span class="search-label-text">Hóspedes</span>
+          </label>
+          <select id="searchGuests" name="guests" class="search-input">
+            <option value="1">1 hóspede</option>
+            <option value="2" selected>2 hóspedes</option>
+            <option value="3">3 hóspedes</option>
+            <option value="4">4 hóspedes</option>
+            <option value="5+">5+ hóspedes</option>
+          </select>
+        </div>
+        
+        <button type="submit" class="search-button">
+          <span>Buscar</span>
+          <span class="search-button-icon">&#10140;</span>
+        </button>
+      </form>
     </div>
   </section>
 
@@ -46,7 +98,7 @@
       <h2 class="section-title">Por que instituições escolhem a Hospped?</h2>
       <div class="diferenciais-grid">
         <div class="card">
-          <div class="card-icon"></div>
+          <div class="card-icon">&#128176;</div>
           <h3>Economia Real</h3>
           <p>Negociação direta com hotéis e fornecedores para reduzir custos sem abrir mão da qualidade.</p>
           <ul>
@@ -56,7 +108,7 @@
           </ul>
         </div>
         <div class="card">
-          <div class="card-icon"></div>
+          <div class="card-icon">&#129309;</div>
           <h3>Atendimento Humano</h3>
           <p>Nada de robôs ou chatbots. Nossa equipe especializada resolve suas demandas com agilidade.</p>
           <ul>
@@ -66,7 +118,7 @@
           </ul>
         </div>
         <div class="card">
-          <div class="card-icon"></div>
+          <div class="card-icon">&#128274;</div>
           <h3>Flexibilidade Total</h3>
           <p>Sem contratos de fidelidade. Você mantém o controle e pode ajustar conforme sua necessidade.</p>
           <ul>
@@ -82,14 +134,38 @@
     </div>
   </section>
 
-  <!-- CTA Final -->
+  <!-- Como Funciona -->
   <section style="background: var(--white);">
+    <div class="section-container">
+      <h2 class="section-title">Como Funciona</h2>
+      <div class="diferenciais-grid">
+        <div class="card text-center">
+          <div class="card-icon" style="background: var(--gold-soft); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 1.5rem; font-weight: bold;">1</div>
+          <h3>Você Solicita</h3>
+          <p>Preencha o formulário com suas necessidades de viagem: destino, datas e número de hóspedes.</p>
+        </div>
+        <div class="card text-center">
+          <div class="card-icon" style="background: var(--gold-soft); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 1.5rem; font-weight: bold;">2</div>
+          <h3>Nós Negociamos</h3>
+          <p>Nossa equipe entra em contato direto com os melhores hotéis para conseguir as melhores tarifas.</p>
+        </div>
+        <div class="card text-center">
+          <div class="card-icon" style="background: var(--gold-soft); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 1.5rem; font-weight: bold;">3</div>
+          <h3>Você Aprova</h3>
+          <p>Receba opções personalizadas, escolha a melhor e confirme sua reserva com total segurança.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Final -->
+  <section style="background: linear-gradient(135deg, var(--jade-deep) 0%, var(--jade-light) 100%); color: white; padding: 4rem 2rem;">
     <div class="section-container text-center">
-      <h2 style="color: var(--jade-deep); margin-bottom: 1rem;">Pronto para otimizar suas viagens?</h2>
-      <p style="color: var(--gray-medium); margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+      <h2 style="color: white; margin-bottom: 1rem;">Pronto para otimizar suas viagens?</h2>
+      <p style="opacity: 0.95; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
         Entre em contato e descubra como a Hospped pode transformar a gestão de viagens da sua empresa ou instituição.
       </p>
-      <a href="contato.html" class="btn btn-large">Falar com um especialista</a>
+      <a href="contato.html" class="btn btn-large" style="background: var(--gold-soft); color: white;">Falar com um especialista</a>
     </div>
   </section>
 
@@ -113,7 +189,7 @@
       <div class="footer-links">
         <h4>Contato</h4>
         <a href="mailto:contato@hospped.com.br">contato@hospped.com.br</a>
-        <a href="https://wa.me/5588999999999" target="_blank">WhatsApp</a>
+        <a href="https://wa.me/5588999999999" target="_blank" rel="noopener">WhatsApp</a>
         <a href="#">Juazeiro do Norte - CE</a>
       </div>
     </div>
@@ -122,6 +198,82 @@
     </div>
   </footer>
 
+  <!-- Modal de Autenticação -->
+  <div class="modal-overlay" id="authModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 id="modalTitle">Acesso à Conta</h3>
+        <button type="button" class="modal-close" aria-label="Fechar">&times;</button>
+      </div>
+      
+      <div class="modal-body">
+        <form id="loginForm">
+          <div class="form-group">
+            <label for="loginEmail" class="required">E-mail</label>
+            <input type="email" id="loginEmail" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="loginPassword" class="required">Senha</label>
+            <input type="password" id="loginPassword" class="form-control" required>
+          </div>
+          <span class="form-error">Mensagem de erro</span>
+          <button type="submit" class="btn btn-large" style="width: 100%;">Entrar</button>
+          <p class="text-center mt-1">
+            <button type="button" id="toggleToRegister" class="modal-toggle">Criar nova conta</button>
+          </p>
+        </form>
+        
+        <form id="registerForm" class="hidden">
+          <div class="form-group">
+            <label for="registerName" class="required">Nome Completo</label>
+            <input type="text" id="registerName" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="registerEmail" class="required">E-mail Corporativo</label>
+            <input type="email" id="registerEmail" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="registerCompany">Empresa / Instituição</label>
+            <input type="text" id="registerCompany" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="registerPassword" class="required">Senha</label>
+            <input type="password" id="registerPassword" class="form-control" required minlength="8">
+            <span class="form-note">Mínimo de 8 caracteres</span>
+          </div>
+          <span class="form-error">Mensagem de erro</span>
+          <button type="submit" class="btn btn-large" style="width: 100%;">Criar Conta</button>
+          <p class="text-center mt-1">
+            <button type="button" id="toggleToLogin" class="modal-toggle">Já tenho uma conta</button>
+          </p>
+        </form>
+      </div>
+      
+      <div class="modal-footer">
+        <p style="font-size: 0.85rem; color: var(--gray-medium);">
+          Ao criar uma conta, você concorda com nossos <a href="#" style="color: var(--jade-deep);">Termos de Uso</a> e <a href="#" style="color: var(--jade-deep);">Política de Privacidade</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+
   <script src="assets/js/main.js"></script>
+  
+  <script>
+    // Script para pré-preencher o formulário de contato com os dados da busca
+    document.getElementById('quickSearchForm').addEventListener('submit', function(e) {
+      const formData = {
+        destination: document.getElementById('searchDestination').value,
+        checkIn: document.getElementById('searchCheckIn').value,
+        checkOut: document.getElementById('searchCheckOut').value,
+        guests: document.getElementById('searchGuests').value
+      };
+      
+      // Salvar no localStorage para a página de contato usar
+      localStorage.setItem('hospped_quick_search', JSON.stringify(formData));
+      
+      // O form vai redirecionar para contato.html naturalmente
+    });
+  </script>
 </body>
 </html>
