@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hospped</title>
+  <meta name="description" content="Agência de reservas com atendimento humano.">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Hospped">
+  <meta property="og:description" content="Gestão de viagens corporativas e acadêmicas.">
+  <meta property="og:type" content="website">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            hospped: {
+              primary: '#2A5D5E',
+              primaryHover: '#1f4a4b',
+              accent: '#D4AF37',
+              accentHover: '#b8962e',
+              bg: '#F0F0E9',
+              text: '#333333',
+              textLight: '#666666',
+              textOnPrimary: '#FFFFFF',
+              textOnAccent: '#333333',
+            }
+          },
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-hospped-bg text-hospped-text font-sans flex flex-col min-h-screen">
+  
+  <!-- Header -->
+  <header class="bg-white/95 shadow-sm sticky top-0 z-50 border-b border-hospped-primary/10">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+      
+      <!-- Logo: link absoluto que Pelican converte -->
+      <a href="/" class="flex items-center gap-1">
+        <span class="text-xl font-extrabold">
+          <span class="text-hospped-primary">Hos</span><span class="text-hospped-accent">pp</span><span class="text-hospped-primary">ed</span>
+        </span>
+        <span class="text-xs text-hospped-textLight self-end mb-0.5">by HotelsBook</span>
+      </a>
+      
+      <!-- Menu Desktop -->
+      <nav class="hidden md:flex gap-6 text-sm font-medium text-hospped-textLight">
+      <a href="https://hotelsbook.github.io/hospped/" class="hover:text-hospped-primary transition">Início</a>
+      <a href="https://hotelsbook.github.io/hospped/servicos.html" class="hover:text-hospped-primary transition">Serviços</a>
+      <a href="https://hotelsbook.github.io/hospped/sobre.html" class="hover:text-hospped-primary transition">Sobre</a>
+      <a href="https://hotelsbook.github.io/hospped/contato.html" class="hover:text-hospped-primary transition">Contato</a>
+      </nav>
+
+      <!-- CTA -->
+      <a href="https://hotelsbook.github.io/hospped/contato.html" class="hidden md:inline-block bg-hospped-accent text-hospped-textOnAccent font-semibold px-4 py-2 rounded-md text-sm hover:bg-hospped-accentHover transition">
+      Fale Conosco
+      </a>
+      
+      <!-- Mobile Menu Button -->
+      <button class="md:hidden text-hospped-primary" aria-label="Menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="flex-grow">    <h2>Archives for Hospped</h2>
+
+    <dl>
+    </dl>
+</main>
+
+  <!-- Footer -->
+<footer class="bg-hospped-primary text-white py-10">
+  <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-8 text-sm">
+    <div>
+      <div class="font-extrabold text-white mb-2">Hos<span class="text-hospped-accent">pp</span>ed</div>
+      <p class="text-emerald-100/80">Gestão inteligente de viagens corporativas e acadêmicas.</p>
+    </div>
+    <div>
+      <div class="font-bold text-emerald-100 mb-2">Serviços</div>
+      <ul class="space-y-1 text-emerald-100/80">
+        <li><a href="https://hotelsbook.github.io/hospped/servicos.html" class="hover:text-white">Viagens Corporativas</a></li>
+        <li><a href="https://hotelsbook.github.io/hospped/servicos.html" class="hover:text-white">Mobilidade Acadêmica</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="font-bold text-emerald-100 mb-2">Contato</div>
+      <ul class="space-y-1 text-emerald-100/80">
+        <li><a href="https://hotelsbook.github.io/hospped/contato.html" class="hover:text-white">Solicitar Cotação</a></li>
+        <li><a href="mailto:contato@hospped.com.br" class="hover:text-white">contato@hospped.com.br</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="max-w-7xl mx-auto px-4 mt-8 pt-6 border-t border-emerald-700/30 text-center text-xs text-emerald-200/70">
+    &copy; 2026 Hospped by HotelsBook.
+  </div>
+</footer>
+
+  <!-- Mobile Menu Script -->
+  <script>
+    document.querySelector('button[aria-label="Menu"]')?.addEventListener('click', function() {
+      const nav = this.closest('header').querySelector('nav');
+      nav?.classList.toggle('hidden');
+      nav?.classList.toggle('absolute');
+      nav?.classList.toggle('top-14');
+      nav?.classList.toggle('left-0');
+      nav?.classList.toggle('right-0');
+      nav?.classList.toggle('bg-white');
+      nav?.classList.toggle('p-4');
+      nav?.classList.toggle('shadow-lg');
+      nav?.classList.toggle('flex-col');
+    });
+  </script>
+</body>
+</html>
