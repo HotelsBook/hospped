@@ -1,0 +1,35 @@
+<!-- Header igual ao index.html -->
+<!-- Hero: "Sobre a Hospped" -->
+
+<section>
+  <div class="section-container">
+    <div class="sobre-content">
+      <div class="sobre-texto">
+        <h2 style="color: var(--jade-deep);">Nossa História</h2>
+        <p>A Hospped nasceu da experiência do HotelsBook no setor hoteleiro, com o propósito de oferecer uma alternativa humana e eficiente às plataformas automatizadas de gestão de viagens.</p>
+        
+        <h3>Missão</h3>
+        <p>Facilitar a gestão de viagens institucionais com economia, transparência e atendimento personalizado.</p>
+        
+        <h3>Visão</h3>
+        <p>Ser referência em gestão de viagens corporativas e acadêmicas no Nordeste, expandindo para todo o Brasil com foco em parcerias regionais.</p>
+        
+        <h3>Diferencial</h3>
+        <p>Combinamos tecnologia acessível com atendimento humano especializado, garantindo que cada cliente tenha um consultor dedicado para resolver suas demandas.</p>
+      </div>
+      <div>
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <h3 style="color: var(--jade-deep);">Por que escolher a Hospped?</h3>
+          <ul style="list-style: none; margin-top: 1rem;">
+            <li style="padding: 0.5rem 0; border-bottom: 1px solid #eee;">🤝 <strong>Atendimento humano:</strong> sem robôs, sem espera</li>
+            <li style="padding: 0.5rem 0; border-bottom: 1px solid #eee;">💰 <strong>Economia comprovada:</strong> até 30% em negociações diretas</li>
+            <li style="padding: 0.5rem 0; border-bottom: 1px solid #eee;">🔓 <strong>Sem fidelidade:</strong> liberdade para ajustar conforme sua necessidade</li>
+            <li style="padding: 0.5rem 0;">📊 <strong>Controle total:</strong> relatórios claros e transparência nos gastos</li>
+          </ul>
+        </div>
+        <a href="contato.html" class="btn btn-large" style="width: 100%;">Entrar em contato</a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Footer igual -->

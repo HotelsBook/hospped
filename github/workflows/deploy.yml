@@ -1,0 +1,45 @@
+# Workflow para deploy no GitHub Pages (subpasta /hospped/)
+# Baseado em peaceiris/actions-gh-pages@v4 - ação mais confiável para este cenário [[17]]
+
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]  # Altere para 'master' se for seu branch principal
+  workflow_dispatch:    # Permite deploy manual
+
+# Permissões necessárias para criar/atualizar branch gh-pages
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+# Cancela execuções anteriores da mesma branch para evitar conflitos
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Configurar GitHub Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload do artefato (pasta raiz do projeto)
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Importante: publica TODOS os arquivos da raiz
+          # Como estamos usando HTML puro, não há pasta 'output' ou 'dist'
+          path: '.'
+
+      - name: Deploy para GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
