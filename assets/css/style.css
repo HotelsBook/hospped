@@ -79,7 +79,7 @@ header {
   color: var(--gray-medium);
   margin-left: 0.25rem;
   font-weight: 400;
-  text-transform: uppercase;
+  text-transform: none;
   letter-spacing: 0.5px;
 }
 
