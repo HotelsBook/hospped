@@ -103,6 +103,66 @@
       <p>&copy; 2026 Hospped by HotelsBook. Todos os direitos reservados.</p>
     </div>
   </footer>
+
+  <!-- Modal de Autenticação -->
+  <div class="modal-overlay" id="authModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 id="modalTitle">Acesso à Conta</h3>
+        <button type="button" class="modal-close" aria-label="Fechar">&times;</button>
+      </div>
+      
+      <div class="modal-body">
+        <form id="loginForm">
+          <div class="form-group">
+            <label for="loginEmail" class="required">E-mail</label>
+            <input type="email" id="loginEmail" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="loginPassword" class="required">Senha</label>
+            <input type="password" id="loginPassword" class="form-control" required>
+          </div>
+          <span class="form-error">Mensagem de erro</span>
+          <button type="submit" class="btn btn-large" style="width: 100%;">Entrar</button>
+          <p class="text-center mt-1">
+            <button type="button" id="toggleToRegister" class="modal-toggle">Criar nova conta</button>
+          </p>
+        </form>
+        
+        <form id="registerForm" class="hidden">
+          <div class="form-group">
+            <label for="registerName" class="required">Nome Completo</label>
+            <input type="text" id="registerName" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="registerEmail" class="required">E-mail Corporativo</label>
+            <input type="email" id="registerEmail" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="registerCompany">Empresa / Instituição</label>
+            <input type="text" id="registerCompany" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="registerPassword" class="required">Senha</label>
+            <input type="password" id="registerPassword" class="form-control" required minlength="8">
+            <span class="form-note">Mínimo de 8 caracteres</span>
+          </div>
+          <span class="form-error">Mensagem de erro</span>
+          <button type="submit" class="btn btn-large" style="width: 100%;">Criar Conta</button>
+          <p class="text-center mt-1">
+            <button type="button" id="toggleToLogin" class="modal-toggle">Já tenho uma conta</button>
+          </p>
+        </form>
+      </div>
+      
+      <div class="modal-footer">
+        <p style="font-size: 0.85rem; color: var(--gray-medium);">
+          Ao criar uma conta, você concorda com nossos <a href="#" style="color: var(--jade-deep);">Termos de Uso</a> e <a href="#" style="color: var(--jade-deep);">Política de Privacidade</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+  
   <script src="assets/js/main.js"></script>
 </body>
 </html>
