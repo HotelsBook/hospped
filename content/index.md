@@ -1,6 +1,7 @@
 Title: Hospped - Gestão de Viagens Corporativas e Acadêmicas
 Description: Agência de reservas com atendimento humano e negociação direta. Economia de até 30% em viagens corporativas e acadêmicas em todo o Brasil.
 Slug: index
+Date: 2026-01-15
 Status: published
 
 <!-- Schema Markup -->
