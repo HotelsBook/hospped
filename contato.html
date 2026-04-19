@@ -3,91 +3,345 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Entre em contato com a Hospped para gestão de viagens corporativas e acadêmicas.">
-  <title>Contato | Hospped</title>
+  <meta name="description" content="Solicite sua reserva corporativa ou acadêmica com a Hospped. Gestão profissional de viagens institucionais.">
+  <meta name="keywords" content="gestão de viagens corporativas, mobilidade acadêmica, reservas institucionais">
+  <title>Contato e Solicitação de Reserva | Hospped</title>
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="canonical" href="https://hotelsbook.github.io/hospped/contato.html">
 </head>
 <body>
-  <!-- Header igual -->
+  <!-- Header -->
+  <header>
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <span class="logo-text">Hos<span class="pp-highlight">pp</span>ed</span>
+        <span class="logo-tagline">by HotelsBook</span>
+      </a>
+      <button class="mobile-menu-btn" aria-label="Abrir menu" aria-expanded="false">&#9776;</button>
+      <nav>
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="servicos.html">Serviços</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="contato.html" class="active">Contato</a></li>
+        </ul>
+      </nav>
+      <div class="user-actions">
+        <a href="#" class="btn-login" data-auth-trigger>Acessar conta</a>
+      </div>
+    </div>
+  </header>
 
-  <section class="hero" style="padding: 3rem 2rem;">
+  <!-- Hero -->
+  <section class="hero">
     <div class="hero-content">
-      <h1>Entre em Contato</h1>
-      <p>Estamos prontos para entender suas necessidades e apresentar a melhor solução.</p>
+      <h1>Solicite sua Reserva</h1>
+      <p>Preencha o formulário abaixo e nossa equipe entrará em contato para confirmar sua solicitação.</p>
     </div>
   </section>
 
+  <!-- Formulário de Solicitação -->
   <section>
     <div class="section-container">
+      <h2 class="section-title">Nova Solicitação de Reserva</h2>
+      <p class="section-subtitle">Informações detalhadas nos ajudam a encontrar a melhor opção para sua instituição.</p>
+      
+      <form id="bookingRequestForm" class="card" novalidate>
+        <!-- Datas e Destino -->
+        <div class="form-row">
+          <div class="form-group">
+            <label for="checkIn" class="required">Data de Chegada</label>
+            <div class="date-picker-wrapper">
+              <input type="text" id="checkIn" name="checkIn" class="date-picker-input" placeholder="Selecione a data" required autocomplete="off">
+              <div class="date-picker-dropdown">
+                <div class="date-picker-header">
+                  <button type="button" class="date-picker-nav date-picker-prev" aria-label="Mês anterior">&#10094;</button>
+                  <span class="date-picker-month"></span>
+                  <button type="button" class="date-picker-nav date-picker-next" aria-label="Próximo mês">&#10095;</button>
+                </div>
+                <div class="date-picker-grid">
+                  <div class="date-picker-day-name">Seg</div>
+                  <div class="date-picker-day-name">Ter</div>
+                  <div class="date-picker-day-name">Qua</div>
+                  <div class="date-picker-day-name">Qui</div>
+                  <div class="date-picker-day-name">Sex</div>
+                  <div class="date-picker-day-name">Sáb</div>
+                  <div class="date-picker-day-name">Dom</div>
+                </div>
+                <div class="date-picker-actions">
+                  <button type="button" class="btn btn-outline date-picker-clear">Limpar</button>
+                  <button type="button" class="btn date-picker-apply">Aplicar</button>
+                </div>
+              </div>
+            </div>
+            <span class="form-note">Datas disponíveis para reserva</span>
+          </div>
+          
+          <div class="form-group">
+            <label for="checkOut" class="required">Data de Saída</label>
+            <div class="date-picker-wrapper">
+              <input type="text" id="checkOut" name="checkOut" class="date-picker-input" placeholder="Selecione a data" required autocomplete="off">
+              <div class="date-picker-dropdown">
+                <div class="date-picker-header">
+                  <button type="button" class="date-picker-nav date-picker-prev" aria-label="Mês anterior">&#10094;</button>
+                  <span class="date-picker-month"></span>
+                  <button type="button" class="date-picker-nav date-picker-next" aria-label="Próximo mês">&#10095;</button>
+                </div>
+                <div class="date-picker-grid">
+                  <div class="date-picker-day-name">Seg</div>
+                  <div class="date-picker-day-name">Ter</div>
+                  <div class="date-picker-day-name">Qua</div>
+                  <div class="date-picker-day-name">Qui</div>
+                  <div class="date-picker-day-name">Sex</div>
+                  <div class="date-picker-day-name">Sáb</div>
+                  <div class="date-picker-day-name">Dom</div>
+                </div>
+                <div class="date-picker-actions">
+                  <button type="button" class="btn btn-outline date-picker-clear">Limpar</button>
+                  <button type="button" class="btn date-picker-apply">Aplicar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="destination" class="required">Destino / Endereço de Interesse</label>
+          <input type="text" id="destination" name="destination" class="form-control" placeholder="Ex: Centro de Juazeiro do Norte - CE" required>
+          <span class="form-note">Informe cidade, bairro ou endereço específico</span>
+        </div>
+
+        <div class="form-group">
+          <label for="hotelPreference">Preferência de Hotel (Opcional)</label>
+          <input type="text" id="hotelPreference" name="hotelPreference" class="form-control" placeholder="Nome do hotel ou rede de preferência">
+          <span class="form-note">Deixe em branco para recebermos opções personalizadas</span>
+        </div>
+
+        <!-- Quantidade -->
+        <div class="form-row">
+          <div class="form-group">
+            <label for="guests" class="required">Número de Hóspedes</label>
+            <select id="guests" name="guests" class="form-control" required>
+              <option value="">Selecione</option>
+              <option value="1">1 hóspede</option>
+              <option value="2">2 hóspedes</option>
+              <option value="3">3 hóspedes</option>
+              <option value="4">4 hóspedes</option>
+              <option value="5+">5 ou mais hóspedes</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="rooms" class="required">Número de Quartos</label>
+            <select id="rooms" name="rooms" class="form-control" required>
+              <option value="">Selecione</option>
+              <option value="1">1 quarto</option>
+              <option value="2">2 quartos</option>
+              <option value="3">3 quartos</option>
+              <option value="4+">4 ou mais quartos</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Tipo de Viagem -->
+        <div class="form-group">
+          <label for="travelPurpose" class="required">Finalidade da Viagem</label>
+          <select id="travelPurpose" name="travelPurpose" class="form-control" required>
+            <option value="">Selecione</option>
+            <option value="corporate">Viagem Corporativa</option>
+            <option value="academic">Mobilidade Acadêmica</option>
+            <option value="event">Evento / Congresso</option>
+            <option value="training">Treinamento / Capacitação</option>
+            <option value="other">Outro</option>
+          </select>
+        </div>
+
+        <!-- Informações da Instituição -->
+        <div class="form-group">
+          <label for="companyName" class="required">Nome da Empresa / Instituição</label>
+          <input type="text" id="companyName" name="companyName" class="form-control" placeholder="Razão social ou nome da instituição" required>
+        </div>
+
+        <!-- Contato -->
+        <div class="form-row">
+          <div class="form-group">
+            <label for="contactName" class="required">Nome do Responsável</label>
+            <input type="text" id="contactName" name="contactName" class="form-control" placeholder="Seu nome completo" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="contactEmail" class="required">E-mail Corporativo</label>
+            <input type="email" id="contactEmail" name="contactEmail" class="form-control" placeholder="seu.email@empresa.com.br" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="contactPhone" class="required">Telefone para Contato</label>
+          <input type="tel" id="contactPhone" name="contactPhone" class="form-control" placeholder="(XX) XXXXX-XXXX" required>
+        </div>
+
+        <!-- Informações Adicionais -->
+        <div class="form-group">
+          <label for="additionalInfo">Informações Adicionais</label>
+          <textarea id="additionalInfo" name="additionalInfo" class="form-control" rows="4" placeholder="Descreva necessidades específicas, preferências de acomodação, orçamento estimado, etc."></textarea>
+        </div>
+
+        <!-- Termos -->
+        <div class="form-group">
+          <label style="display: flex; align-items: flex-start; gap: 0.5rem; font-weight: normal;">
+            <input type="checkbox" name="terms" required style="margin-top: 0.25rem;">
+            <span>Concordo com o processamento dos dados informados para fins de solicitação de reserva, conforme nossa <a href="#" style="color: var(--jade-deep);">Política de Privacidade</a>.</span>
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-large" style="width: 100%;">Enviar Solicitação</button>
+        
+        <p class="form-note text-center mt-1">
+          Ao enviar, você autoriza nossa equipe a entrar em contato para confirmar os detalhes da sua solicitação.
+        </p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Informações de Contato -->
+  <section style="background: var(--white);">
+    <div class="section-container">
+      <h2 class="section-title">Outros Canais de Atendimento</h2>
+      
       <div class="contato-layout">
         <div>
-          <h2 style="color: var(--jade-deep); margin-bottom: 1.5rem;">Informações de Contato</h2>
+          <h3 style="color: var(--jade-deep); margin-bottom: 1rem;">Contato Direto</h3>
           
-          <div class="contato-item">
-            <span></span>
-            <div>
-              <strong>E-mail</strong><br>
-              <a href="mailto:contato@hospped.com.br" style="color: var(--jade-deep);">contato@hospped.com.br</a>
-            </div>
+          <div style="margin-bottom: 1rem;">
+            <strong style="color: var(--charcoal);">E-mail</strong><br>
+            <a href="mailto:contato@hospped.com.br" style="color: var(--jade-deep);">contato@hospped.com.br</a>
           </div>
           
-          <div class="contato-item">
-            <span></span>
-            <div>
-              <strong>WhatsApp</strong><br>
-              <a href="https://wa.me/5588999999999" target="_blank" style="color: var(--jade-deep);">(88) 9 9999-9999</a>
-            </div>
+          <div style="margin-bottom: 1rem;">
+            <strong style="color: var(--charcoal);">WhatsApp Corporativo</strong><br>
+            <a href="https://wa.me/5588999999999" target="_blank" rel="noopener" style="color: var(--jade-deep);">(88) 9 9999-9999</a>
           </div>
           
-          <div class="contato-item">
-            <span></span>
-            <div>
-              <strong>Localização</strong><br>
-              Juazeiro do Norte - Ceará, Brasil
-            </div>
-          </div>
-          
-          <div class="segmentacao">
-            <h4>Selecione seu perfil:</h4>
-            <div class="segmentacao-btns">
-              <a href="https://wa.me/5588999999999?text=Olá, sou representante de uma EMPRESA/INSTITUIÇÃO e gostaria de saber mais sobre gestão de viagens." 
-                 class="btn btn-outline" target="_blank">
-                 Sou Cliente (Empresa/Instituição)
-              </a>
-              <a href="https://wa.me/5588999999999?text=Olá, sou HOTEL/PARCEIRO e gostaria de conhecer oportunidades de parceria com a Hospped." 
-                 class="btn btn-outline" target="_blank">
-                 Sou Fornecedor (Hotel/Parceiro)
-              </a>
-            </div>
+          <div>
+            <strong style="color: var(--charcoal);">Endereço</strong><br>
+            Juazeiro do Norte - Ceará, Brasil
           </div>
         </div>
         
         <div>
           <div class="card">
-            <h3 style="color: var(--jade-deep); margin-bottom: 1rem;">Resposta em até 24h</h3>
+            <h3 style="color: var(--jade-deep); margin-bottom: 1rem;">Tempo de Resposta</h3>
             <p style="color: var(--gray-medium); margin-bottom: 1.5rem;">
-              Nossa equipe especializada entrará em contato para entender sua demanda e apresentar uma proposta personalizada, sem compromisso.
+              Todas as solicitações são analisadas por nossa equipe especializada. Entramos em contato em até 24 horas úteis para confirmar disponibilidade e apresentar opções.
             </p>
             
-            <div style="background: var(--cloud-dancer); padding: 1rem; border-radius: 8px; margin: 1.5rem 0;">
-              <strong style="color: var(--jade-deep);">Dica:</strong>
+            <div style="background: var(--cloud-dancer); padding: 1rem; border-radius: 8px;">
+              <strong style="color: var(--jade-deep);">Dica para agilizar:</strong>
               <p style="font-size: 0.95rem; margin-top: 0.5rem; color: var(--gray-medium);">
-                Para agilizar seu atendimento, informe: tipo de instituição, volume estimado de viagens/mês e principais destinos.
+                Informe com precisão as datas, número de hóspedes e qualquer restrição orçamentária. Isso nos permite apresentar opções mais alinhadas à sua necessidade.
               </p>
             </div>
-            
-            <a href="mailto:contato@hospped.com.br?subject=Solicitação de Proposta - Hospped" 
-               class="btn btn-large" style="width: 100%;">
-              Enviar e-mail agora
-            </a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer igual -->
+  <!-- Modal de Autenticação -->
+  <div class="modal-overlay" id="authModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 id="modalTitle">Acesso à Conta</h3>
+        <button type="button" class="modal-close" aria-label="Fechar">&times;</button>
+      </div>
+      
+      <div class="modal-body">
+        <!-- Formulário de Login -->
+        <form id="loginForm">
+          <div class="form-group">
+            <label for="loginEmail" class="required">E-mail</label>
+            <input type="email" id="loginEmail" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="loginPassword" class="required">Senha</label>
+            <input type="password" id="loginPassword" class="form-control" required>
+          </div>
+          <span class="form-error">Mensagem de erro</span>
+          <button type="submit" class="btn btn-large" style="width: 100%;">Entrar</button>
+          <p class="text-center mt-1">
+            <button type="button" id="toggleToRegister" class="modal-toggle">Criar nova conta</button>
+          </p>
+        </form>
+        
+        <!-- Formulário de Registro -->
+        <form id="registerForm" class="hidden">
+          <div class="form-group">
+            <label for="registerName" class="required">Nome Completo</label>
+            <input type="text" id="registerName" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="registerEmail" class="required">E-mail Corporativo</label>
+            <input type="email" id="registerEmail" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="registerCompany">Empresa / Instituição</label>
+            <input type="text" id="registerCompany" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="registerPassword" class="required">Senha</label>
+            <input type="password" id="registerPassword" class="form-control" required minlength="8">
+            <span class="form-note">Mínimo de 8 caracteres</span>
+          </div>
+          <span class="form-error">Mensagem de erro</span>
+          <button type="submit" class="btn btn-large" style="width: 100%;">Criar Conta</button>
+          <p class="text-center mt-1">
+            <button type="button" id="toggleToLogin" class="modal-toggle">Já tenho uma conta</button>
+          </p>
+        </form>
+      </div>
+      
+      <div class="modal-footer">
+        <p style="font-size: 0.85rem; color: var(--gray-medium);">
+          Ao criar uma conta, você concorda com nossos <a href="#" style="color: var(--jade-deep);">Termos de Uso</a> e <a href="#" style="color: var(--jade-deep);">Política de Privacidade</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <span class="logo-text">Hos<span class="pp-highlight">pp</span>ed</span>
+          <span class="logo-tagline">by HotelsBook</span>
+        </a>
+        <p style="margin-top: 1rem; opacity: 0.9;">Gestão profissional de viagens corporativas e acadêmicas.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Navegação</h4>
+        <a href="index.html">Início</a>
+        <a href="servicos.html">Serviços</a>
+        <a href="sobre.html">Sobre</a>
+        <a href="contato.html">Contato</a>
+      </div>
+      <div class="footer-links">
+        <h4>Legal</h4>
+        <a href="#">Termos de Uso</a>
+        <a href="#">Política de Privacidade</a>
+        <a href="#">Política de Cookies</a>
+      </div>
+      <div class="footer-links">
+        <h4>Contato</h4>
+        <a href="mailto:contato@hospped.com.br">contato@hospped.com.br</a>
+        <a href="https://wa.me/5588999999999" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Hospped by HotelsBook. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
   <script src="assets/js/main.js"></script>
 </body>
 </html>
