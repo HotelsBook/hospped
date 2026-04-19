@@ -1,150 +1,291 @@
 /**
  * Hospped - Funcionalidades Principais
- * Versão profissional sem dependências externas
+ * Versão profissional otimizada - sem dependências externas
+ * 
+ * Funcionalidades:
+ * - Menu mobile responsivo
+ * - Modal de autenticação (login/registro)
+ * - Date picker customizado
+ * - Formulário de reserva com validação
+ * - Quick search com prefill automático
+ * - Sistema de alerts
+ * - Dashboard do usuário
+ * - Máscara de telefone
+ * - Acessibilidade e performance
  */
 
 (function() {
   'use strict';
 
+  // ===== CONSTANTES E CONFIGURAÇÕES =====
+  const CONFIG = {
+    storageKeys: {
+      user: 'hospped_user',
+      requests: 'hospped_requests',
+      quickSearch: 'hospped_quick_search'
+    },
+    selectors: {
+      mobileMenuBtn: '.mobile-menu-btn',
+      navMenu: 'nav ul',
+      authModal: '#authModal',
+      authTrigger: '[data-auth-trigger]',
+      loginForm: '#loginForm',
+      registerForm: '#registerForm',
+      bookingForm: '#bookingRequestForm',
+      quickSearchForm: '#quickSearchForm',
+      datePickerInput: '.date-picker-input',
+      userRequestsList: '#userRequestsList',
+      userActions: '.user-actions'
+    },
+    dates: {
+      minDate: new Date().setHours(0, 0, 0, 0)
+    }
+  };
+
+  // ===== UTILITÁRIOS =====
+  const Utils = {
+    escapeHtml: function(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    },
+
+    formatDate: function(date, format = 'DD/MM/YYYY') {
+      if (!(date instanceof Date) || isNaN(date)) return '';
+      const d = String(date.getDate()).padStart(2, '0');
+      const m = String(date.getMonth() + 1).padStart(2, '0');
+      const y = date.getFullYear();
+      return format.replace('DD', d).replace('MM', m).replace('YYYY', y);
+    },
+
+    parseDate: function(dateString) {
+      const parts = dateString.split('/');
+      if (parts.length === 3) {
+        return new Date(parts[2], parts[1] - 1, parts[0]);
+      }
+      return new Date(dateString);
+    },
+
+    debounce: function(func, wait) {
+      let timeout;
+      return function executedFunction(...args) {
+        const later = () => {
+          clearTimeout(timeout);
+          func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+      };
+    },
+
+    storage: {
+      get: function(key) {
+        try {
+          const item = localStorage.getItem(key);
+          return item ? JSON.parse(item) : null;
+        } catch (e) {
+          console.error('Erro ao ler localStorage:', e);
+          return null;
+        }
+      },
+      set: function(key, value) {
+        try {
+          localStorage.setItem(key, JSON.stringify(value));
+          return true;
+        } catch (e) {
+          console.error('Erro ao salvar em localStorage:', e);
+          return false;
+        }
+      },
+      remove: function(key) {
+        try {
+          localStorage.removeItem(key);
+          return true;
+        } catch (e) {
+          console.error('Erro ao remover do localStorage:', e);
+          return false;
+        }
+      }
+    }
+  };
+
   // ===== MENU MOBILE =====
   function initMobileMenu() {
-    const menuBtn = document.querySelector('.mobile-menu-btn');
-    const navMenu = document.querySelector('nav ul');
+    const menuBtn = document.querySelector(CONFIG.selectors.mobileMenuBtn);
+    const navMenu = document.querySelector(CONFIG.selectors.navMenu);
     
-    if (menuBtn && navMenu) {
-      menuBtn.addEventListener('click', function() {
-        const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
-        menuBtn.setAttribute('aria-expanded', String(!isExpanded));
-        navMenu.classList.toggle('active');
-      });
+    if (!menuBtn || !navMenu) return;
 
-      // Fechar menu ao clicar em link
-      navMenu.querySelectorAll('a').forEach(function(link) {
-        link.addEventListener('click', function() {
-          navMenu.classList.remove('active');
-          menuBtn.setAttribute('aria-expanded', 'false');
-        });
+    menuBtn.addEventListener('click', function() {
+      const isExpanded = this.getAttribute('aria-expanded') === 'true';
+      this.setAttribute('aria-expanded', String(!isExpanded));
+      navMenu.classList.toggle('active');
+    });
+
+    // Fechar menu ao clicar em link ou fora
+    document.addEventListener('click', function(e) {
+      if (!navMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+        navMenu.classList.remove('active');
+        menuBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    navMenu.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        navMenu.classList.remove('active');
+        menuBtn.setAttribute('aria-expanded', 'false');
       });
-    }
+    });
   }
 
   // ===== MODAL DE AUTENTICAÇÃO =====
   function initAuthModal() {
-    const modal = document.getElementById('authModal');
-    const openBtns = document.querySelectorAll('[data-auth-trigger]');
-    const closeBtn = modal ? modal.querySelector('.modal-close') : null;
-    const loginForm = document.getElementById('loginForm');
-    const registerForm = document.getElementById('registerForm');
+    const modal = document.querySelector(CONFIG.selectors.authModal);
+    if (!modal) return;
+
+    const openBtns = document.querySelectorAll(CONFIG.selectors.authTrigger);
+    const closeBtn = modal.querySelector('.modal-close');
+    const loginForm = document.querySelector(CONFIG.selectors.loginForm);
+    const registerForm = document.querySelector(CONFIG.selectors.registerForm);
     const toggleToRegister = document.getElementById('toggleToRegister');
     const toggleToLogin = document.getElementById('toggleToLogin');
 
-    if (!modal) return;
+    let currentForm = 'login';
 
-    // Abrir modal
-    openBtns.forEach(function(btn) {
-      btn.addEventListener('click', function(e) {
-        e.preventDefault();
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-        showLogin();
-      });
-    });
+    function openModal() {
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      showForm('login');
+    }
 
-    // Fechar modal
     function closeModal() {
       modal.classList.remove('active');
       document.body.style.overflow = '';
       if (loginForm) loginForm.reset();
       if (registerForm) registerForm.reset();
+      hideFormErrors();
     }
+
+    function showForm(formType) {
+      currentForm = formType;
+      if (loginForm && registerForm) {
+        loginForm.classList.toggle('hidden', formType !== 'login');
+        registerForm.classList.toggle('hidden', formType !== 'register');
+      }
+    }
+
+    function hideFormErrors() {
+      document.querySelectorAll('.form-error.visible').forEach(function(el) {
+        el.classList.remove('visible');
+      });
+    }
+
+    // Event listeners
+    openBtns.forEach(function(btn) {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        openModal();
+      });
+    });
 
     if (closeBtn) {
       closeBtn.addEventListener('click', closeModal);
     }
 
     modal.addEventListener('click', function(e) {
-      if (e.target === modal) {
+      if (e.target === modal) closeModal();
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && modal.classList.contains('active')) {
         closeModal();
       }
     });
 
-    // Alternar entre login e registro
-    function showLogin() {
-      if (loginForm) loginForm.classList.remove('hidden');
-      if (registerForm) registerForm.classList.add('hidden');
-    }
-
-    function showRegister() {
-      if (loginForm) loginForm.classList.add('hidden');
-      if (registerForm) registerForm.classList.remove('hidden');
-    }
-
     if (toggleToRegister) {
       toggleToRegister.addEventListener('click', function(e) {
         e.preventDefault();
-        showRegister();
+        showForm('register');
       });
     }
 
     if (toggleToLogin) {
       toggleToLogin.addEventListener('click', function(e) {
         e.preventDefault();
-        showLogin();
+        showForm('login');
       });
     }
 
-    // Submissão do formulário de login (demo)
+    // Login form submission
     if (loginForm) {
       loginForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        const email = document.getElementById('loginEmail').value;
-        const password = document.getElementById('loginPassword').value;
+        hideFormErrors();
+
+        const email = document.getElementById('loginEmail')?.value.trim();
+        const password = document.getElementById('loginPassword')?.value;
 
         if (!email || !password) {
           showFormError(loginForm, 'Preencha todos os campos obrigatórios.');
           return;
         }
 
+        if (!isValidEmail(email)) {
+          showFormError(loginForm, 'Informe um e-mail válido.');
+          return;
+        }
+
         // Demo: simular autenticação
-        // Em produção: integrar com backend FastAPI
         const userData = {
           email: email,
-          name: email.split('@')[0],
+          name: email.split('@')[0].replace(/\./g, ' ').replace(/^\w/, c => c.toUpperCase()),
           type: 'client',
-          token: 'demo-token-' + Date.now()
+          token: 'demo-' + Date.now()
         };
 
-        localStorage.setItem('hospped_user', JSON.stringify(userData));
+        Utils.storage.set(CONFIG.storageKeys.user, userData);
         closeModal();
         updateUserInterface(userData);
         showAlert('Login realizado com sucesso.', 'success');
       });
     }
 
-    // Submissão do formulário de registro (demo)
+    // Register form submission
     if (registerForm) {
       registerForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        const name = document.getElementById('registerName').value;
-        const email = document.getElementById('registerEmail').value;
-        const company = document.getElementById('registerCompany').value;
-        const password = document.getElementById('registerPassword').value;
+        hideFormErrors();
+
+        const name = document.getElementById('registerName')?.value.trim();
+        const email = document.getElementById('registerEmail')?.value.trim();
+        const company = document.getElementById('registerCompany')?.value.trim();
+        const password = document.getElementById('registerPassword')?.value;
 
         if (!name || !email || !password) {
           showFormError(registerForm, 'Preencha todos os campos obrigatórios.');
           return;
         }
 
-        // Demo: simular registro
+        if (!isValidEmail(email)) {
+          showFormError(registerForm, 'Informe um e-mail válido.');
+          return;
+        }
+
+        if (password.length < 8) {
+          showFormError(registerForm, 'A senha deve ter pelo menos 8 caracteres.');
+          return;
+        }
+
         const userData = {
           email: email,
           name: name,
           company: company,
           type: 'client',
-          token: 'demo-token-' + Date.now()
+          token: 'demo-' + Date.now(),
+          createdAt: new Date().toISOString()
         };
 
-        localStorage.setItem('hospped_user', JSON.stringify(userData));
+        Utils.storage.set(CONFIG.storageKeys.user, userData);
         closeModal();
         updateUserInterface(userData);
         showAlert('Cadastro realizado com sucesso. Bem-vindo, ' + name + '.', 'success');
@@ -152,55 +293,55 @@
     }
   }
 
+  function isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
+
   function showFormError(form, message) {
     const errorEl = form.querySelector('.form-error');
     if (errorEl) {
       errorEl.textContent = message;
       errorEl.classList.add('visible');
-      setTimeout(function() {
-        errorEl.classList.remove('visible');
-      }, 5000);
+      errorEl.setAttribute('role', 'alert');
+      setTimeout(() => errorEl.classList.remove('visible'), 5000);
     }
   }
 
+  // ===== INTERFACE DO USUÁRIO =====
   function updateUserInterface(userData) {
-    const userActions = document.querySelector('.user-actions');
+    const userActions = document.querySelector(CONFIG.selectors.userActions);
     if (!userActions || !userData) return;
 
-    userActions.innerHTML = 
-      '<span class="btn-user" id="userMenuBtn">' + escapeHtml(userData.name) + '</span>';
+    const userName = Utils.escapeHtml(userData.name || userData.email?.split('@')[0] || 'Usuário');
     
-    // Adicionar menu dropdown (simplificado)
-    document.getElementById('userMenuBtn').addEventListener('click', function() {
+    userActions.innerHTML = 
+      '<button class="btn-user" id="userMenuBtn" aria-haspopup="true" aria-expanded="false">' + 
+        userName + 
+      '</button>';
+    
+    document.getElementById('userMenuBtn')?.addEventListener('click', function() {
       if (confirm('Deseja sair da conta?')) {
-        localStorage.removeItem('hospped_user');
+        Utils.storage.remove(CONFIG.storageKeys.user);
         location.reload();
       }
     });
   }
 
   function getCurrentUser() {
-    try {
-      const user = localStorage.getItem('hospped_user');
-      return user ? JSON.parse(user) : null;
-    } catch (e) {
-      return null;
-    }
-  }
-
-  function escapeHtml(text) {
-    const div = document.createElement('div');
-    div.textContent = text;
-    return div.innerHTML;
+    return Utils.storage.get(CONFIG.storageKeys.user);
   }
 
   // ===== DATE PICKER CUSTOMIZADO =====
   function initDatePickers() {
-    const dateInputs = document.querySelectorAll('.date-picker-input');
+    const dateInputs = document.querySelectorAll(CONFIG.selectors.datePickerInput);
     
     dateInputs.forEach(function(input) {
       const wrapper = input.closest('.date-picker-wrapper');
+      if (!wrapper) return;
+      
       const dropdown = wrapper.querySelector('.date-picker-dropdown');
+      if (!dropdown) return;
+
       const grid = dropdown.querySelector('.date-picker-grid');
       const monthDisplay = dropdown.querySelector('.date-picker-month');
       const prevBtn = dropdown.querySelector('.date-picker-prev');
@@ -210,237 +351,336 @@
       
       let currentDate = new Date();
       let selectedDates = [];
-      const minDate = new Date(); // Não permitir datas passadas
-      minDate.setHours(0, 0, 0, 0);
+      const minDate = new Date(CONFIG.dates.minDate);
 
       function renderCalendar(date) {
         const year = date.getFullYear();
         const month = date.getMonth();
         
-        // Atualizar título
         const monthNames = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho',
                            'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
-        monthDisplay.textContent = monthNames[month] + ' ' + year;
+        if (monthDisplay) {
+          monthDisplay.textContent = monthNames[month] + ' ' + year;
+        }
 
-        // Limpar grid (exceto cabeçalho)
-        const dayNames = grid.querySelectorAll('.date-picker-day-name');
+        // Limpar grid mantendo cabeçalho
+        const dayNames = Array.from(grid.querySelectorAll('.date-picker-day-name'));
         grid.innerHTML = '';
-        dayNames.forEach(function(day) {
-          grid.appendChild(day);
-        });
+        dayNames.forEach(day => grid.appendChild(day));
 
-        // Primeiro dia do mês
         const firstDay = new Date(year, month, 1);
-        const startingDay = firstDay.getDay() === 0 ? 6 : firstDay.getDay() - 1; // Seg=0
-
-        // Dias do mês
+        const startingDay = firstDay.getDay() === 0 ? 6 : firstDay.getDay() - 1;
         const daysInMonth = new Date(year, month + 1, 0).getDate();
 
-        // Dias do mês anterior
+        // Dias vazios do mês anterior
         for (let i = 0; i < startingDay; i++) {
           const emptyCell = document.createElement('div');
           emptyCell.className = 'date-picker-day disabled';
+          emptyCell.setAttribute('aria-hidden', 'true');
           grid.appendChild(emptyCell);
         }
 
-        // Dias do mês atual
+        // Dias do mês
         for (let day = 1; day <= daysInMonth; day++) {
           const cell = document.createElement('div');
           cell.className = 'date-picker-day';
           cell.textContent = day;
+          cell.setAttribute('role', 'button');
+          cell.setAttribute('tabindex', '0');
+          cell.setAttribute('aria-label', day + ' de ' + monthNames[month] + ' de ' + year);
           
           const cellDate = new Date(year, month, day);
           cellDate.setHours(0, 0, 0, 0);
 
-          // Desabilitar datas passadas
           if (cellDate < minDate) {
             cell.classList.add('disabled');
+            cell.setAttribute('aria-disabled', 'true');
           }
 
-          // Marcar data atual
           const today = new Date();
           today.setHours(0, 0, 0, 0);
           if (cellDate.getTime() === today.getTime()) {
             cell.classList.add('today');
           }
 
-          // Marcar datas selecionadas
-          if (selectedDates.some(function(d) {
-            return d.getTime() === cellDate.getTime();
-          })) {
+          if (selectedDates.some(d => d.getTime() === cellDate.getTime())) {
             cell.classList.add('selected');
           }
 
-          cell.addEventListener('click', function() {
-            if (cell.classList.contains('disabled')) return;
-
-            // Toggle seleção
-            const existingIndex = selectedDates.findIndex(function(d) {
-              return d.getTime() === cellDate.getTime();
-            });
-
-            if (existingIndex > -1) {
-              selectedDates.splice(existingIndex, 1);
-            } else {
-              selectedDates.push(cellDate);
-              // Ordenar datas
-              selectedDates.sort(function(a, b) { return a - b; });
+          cell.addEventListener('click', handleDateSelect);
+          cell.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              handleDateSelect.call(this);
             }
-
-            renderCalendar(date);
           });
 
           grid.appendChild(cell);
         }
       }
 
-      // Navegação entre meses
-      prevBtn.addEventListener('click', function() {
-        currentDate.setMonth(currentDate.getMonth() - 1);
-        renderCalendar(currentDate);
-      });
+      function handleDateSelect() {
+        if (this.classList.contains('disabled')) return;
 
-      nextBtn.addEventListener('click', function() {
-        currentDate.setMonth(currentDate.getMonth() + 1);
-        renderCalendar(currentDate);
-      });
+        const day = parseInt(this.textContent, 10);
+        const cellDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), day);
+        cellDate.setHours(0, 0, 0, 0);
 
-      // Aplicar seleção
-      applyBtn.addEventListener('click', function() {
-        if (selectedDates.length > 0) {
-          const formatDate = function(d) {
-            return String(d.getDate()).padStart(2, '0') + '/' + 
-                   String(d.getMonth() + 1).padStart(2, '0') + '/' + 
-                   d.getFullYear();
-          };
-          
-          if (selectedDates.length === 1) {
-            input.value = formatDate(selectedDates[0]);
-          } else {
-            input.value = formatDate(selectedDates[0]) + ' - ' + formatDate(selectedDates[1]);
-          }
+        const existingIndex = selectedDates.findIndex(d => d.getTime() === cellDate.getTime());
+        if (existingIndex > -1) {
+          selectedDates.splice(existingIndex, 1);
+        } else {
+          selectedDates.push(cellDate);
+          selectedDates.sort((a, b) => a - b);
+          if (selectedDates.length > 2) selectedDates.shift();
         }
+
+        renderCalendar(currentDate);
+      }
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', function() {
+          currentDate.setMonth(currentDate.getMonth() - 1);
+          renderCalendar(currentDate);
+        });
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener('click', function() {
+          currentDate.setMonth(currentDate.getMonth() + 1);
+          renderCalendar(currentDate);
+        });
+      }
+
+      if (applyBtn) {
+        applyBtn.addEventListener('click', function() {
+          if (selectedDates.length > 0) {
+            if (selectedDates.length === 1) {
+              input.value = Utils.formatDate(selectedDates[0]);
+            } else {
+              input.value = Utils.formatDate(selectedDates[0]) + ' - ' + Utils.formatDate(selectedDates[1]);
+            }
+          }
+          closeDropdown();
+        });
+      }
+
+      if (clearBtn) {
+        clearBtn.addEventListener('click', function() {
+          input.value = '';
+          selectedDates = [];
+          closeDropdown();
+        });
+      }
+
+      function openDropdown() {
+        document.querySelectorAll('.date-picker-dropdown.active').forEach(d => {
+          if (d !== dropdown) d.classList.remove('active');
+        });
+        dropdown.classList.add('active');
+        renderCalendar(currentDate);
+        input.setAttribute('aria-expanded', 'true');
+      }
+
+      function closeDropdown() {
         dropdown.classList.remove('active');
         selectedDates = [];
+        input.setAttribute('aria-expanded', 'false');
         renderCalendar(currentDate);
-      });
+      }
 
-      // Limpar seleção
-      clearBtn.addEventListener('click', function() {
-        input.value = '';
-        selectedDates = [];
-        dropdown.classList.remove('active');
-        renderCalendar(currentDate);
-      });
-
-      // Toggle dropdown
       input.addEventListener('click', function() {
         const isActive = dropdown.classList.contains('active');
-        // Fechar todos os dropdowns
-        document.querySelectorAll('.date-picker-dropdown').forEach(function(d) {
-          d.classList.remove('active');
-        });
-        if (!isActive) {
-          dropdown.classList.add('active');
-          renderCalendar(currentDate);
+        if (isActive) {
+          closeDropdown();
+        } else {
+          openDropdown();
         }
       });
 
-      // Fechar ao clicar fora
+      input.addEventListener('keydown', function(e) {
+        if (e.key === 'ArrowDown' || e.key === 'Enter') {
+          e.preventDefault();
+          openDropdown();
+        }
+        if (e.key === 'Escape') {
+          closeDropdown();
+        }
+      });
+
       document.addEventListener('click', function(e) {
         if (!wrapper.contains(e.target)) {
-          dropdown.classList.remove('active');
+          closeDropdown();
         }
       });
 
-      // Renderizar inicial
       renderCalendar(currentDate);
     });
   }
 
-  // ===== FORMULÁRIO DE SOLICITAÇÃO DE RESERVA =====
-  function initBookingForm() {
-    const form = document.getElementById('bookingRequestForm');
+  // ===== MÁSCARA DE TELEFONE =====
+  function initPhoneMask() {
+    const phoneInput = document.getElementById('contactPhone');
+    if (!phoneInput) return;
+
+    phoneInput.addEventListener('input', function(e) {
+      let value = e.target.value.replace(/\D/g, '');
+      
+      if (value.length <= 10) {
+        value = value.replace(/(\d{2})(\d)/, '($1) $2');
+        value = value.replace(/(\d{4})(\d)/, '$1-$2');
+      } else {
+        value = value.replace(/(\d{2})(\d)/, '($1) $2');
+        value = value.replace(/(\d{5})(\d)/, '$1-$2');
+      }
+      
+      e.target.value = value.slice(0, 15);
+    });
+
+    phoneInput.addEventListener('blur', function() {
+      if (this.value.length < 14) {
+        this.value = '';
+      }
+    });
+  }
+
+  // ===== QUICK SEARCH COM PREFILL =====
+  function initQuickSearch() {
+    const form = document.querySelector(CONFIG.selectors.quickSearchForm);
     if (!form) return;
+
+    form.addEventListener('submit', function(e) {
+      const formData = {
+        destination: document.getElementById('searchDestination')?.value || '',
+        checkIn: document.getElementById('searchCheckIn')?.value || '',
+        checkOut: document.getElementById('searchCheckOut')?.value || '',
+        guests: document.getElementById('searchGuests')?.value || '2',
+        timestamp: new Date().toISOString()
+      };
+
+      Utils.storage.set(CONFIG.storageKeys.quickSearch, formData);
+      // Redirecionamento natural para contato.html via action do form
+    });
+  }
+
+  function prefillContactForm() {
+    const searchData = Utils.storage.get(CONFIG.storageKeys.quickSearch);
+    if (!searchData) return;
+
+    const fieldMap = {
+      destination: 'destination',
+      checkIn: 'checkIn',
+      checkOut: 'checkOut',
+      guests: 'guests'
+    };
+
+    Object.entries(fieldMap).forEach(([searchKey, formKey]) => {
+      const field = document.getElementById(formKey);
+      if (field && searchData[searchKey]) {
+        field.value = searchData[searchKey];
+      }
+    });
+
+    Utils.storage.remove(CONFIG.storageKeys.quickSearch);
+  }
+
+  // ===== FORMULÁRIO DE RESERVA =====
+  function initBookingForm() {
+    const form = document.querySelector(CONFIG.selectors.bookingForm);
+    if (!form) return;
+
+    // Validação em tempo real
+    form.querySelectorAll('[required]').forEach(function(field) {
+      field.addEventListener('blur', function() {
+        validateField(this);
+      });
+      field.addEventListener('input', function() {
+        if (this.classList.contains('error') && this.value.trim()) {
+          this.classList.remove('error');
+        }
+      });
+    });
 
     form.addEventListener('submit', function(e) {
       e.preventDefault();
 
-      // Validação básica
-      const requiredFields = form.querySelectorAll('[required]');
       let isValid = true;
-
-      requiredFields.forEach(function(field) {
-        if (!field.value.trim()) {
+      form.querySelectorAll('[required]').forEach(function(field) {
+        if (!validateField(field)) {
           isValid = false;
-          field.classList.add('error');
-        } else {
-          field.classList.remove('error');
         }
       });
 
       if (!isValid) {
-        showAlert('Preencha todos os campos obrigatórios.', 'error');
+        showAlert('Preencha todos os campos obrigatórios corretamente.', 'error');
         return;
       }
 
-      // Coletar dados do formulário
       const formData = {
-        checkIn: document.getElementById('checkIn').value,
-        checkOut: document.getElementById('checkOut').value,
-        destination: document.getElementById('destination').value,
-        hotelPreference: document.getElementById('hotelPreference').value,
-        guests: document.getElementById('guests').value,
-        rooms: document.getElementById('rooms').value,
-        travelPurpose: document.getElementById('travelPurpose').value,
-        companyName: document.getElementById('companyName').value,
-        contactName: document.getElementById('contactName').value,
-        contactEmail: document.getElementById('contactEmail').value,
-        contactPhone: document.getElementById('contactPhone').value,
-        additionalInfo: document.getElementById('additionalInfo').value,
+        id: 'REQ-' + Date.now(),
+        checkIn: document.getElementById('checkIn')?.value,
+        checkOut: document.getElementById('checkOut')?.value,
+        destination: document.getElementById('destination')?.value,
+        hotelPreference: document.getElementById('hotelPreference')?.value,
+        guests: document.getElementById('guests')?.value,
+        rooms: document.getElementById('rooms')?.value,
+        travelPurpose: document.getElementById('travelPurpose')?.value,
+        companyName: document.getElementById('companyName')?.value,
+        contactName: document.getElementById('contactName')?.value,
+        contactEmail: document.getElementById('contactEmail')?.value,
+        contactPhone: document.getElementById('contactPhone')?.value,
+        additionalInfo: document.getElementById('additionalInfo')?.value,
+        status: 'pending',
         timestamp: new Date().toISOString()
       };
 
-      // Demo: salvar solicitação localmente
-      // Em produção: enviar para backend via API
-      const requests = JSON.parse(localStorage.getItem('hospped_requests') || '[]');
-      requests.push(formData);
-      localStorage.setItem('hospped_requests', JSON.stringify(requests));
+      const requests = Utils.storage.get(CONFIG.storageKeys.requests) || [];
+      requests.unshift(formData);
+      Utils.storage.set(CONFIG.storageKeys.requests, requests);
 
-      // Feedback ao usuário
       showAlert('Solicitação enviada com sucesso. Nossa equipe entrará em contato em até 24 horas.', 'success');
       form.reset();
 
-      // Atualizar dashboard se estiver na página do usuário
       if (typeof renderUserRequests === 'function') {
         renderUserRequests();
       }
     });
   }
 
+  function validateField(field) {
+    const value = field.value.trim();
+    const isValid = value !== '';
+    
+    if (!isValid) {
+      field.classList.add('error');
+      field.setAttribute('aria-invalid', 'true');
+    } else {
+      field.classList.remove('error');
+      field.setAttribute('aria-invalid', 'false');
+    }
+    
+    return isValid;
+  }
+
   // ===== ALERTS =====
   function showAlert(message, type) {
     // Remover alerts existentes
-    const existingAlerts = document.querySelectorAll('.alert');
-    existingAlerts.forEach(function(alert) {
-      alert.remove();
-    });
+    document.querySelectorAll('.alert').forEach(alert => alert.remove());
 
-    // Criar novo alert
     const alert = document.createElement('div');
     alert.className = 'alert alert-' + type;
     alert.textContent = message;
     alert.setAttribute('role', 'alert');
+    alert.setAttribute('aria-live', 'polite');
 
-    // Inserir no topo do conteúdo principal
     const mainContent = document.querySelector('.section-container') || document.body;
     mainContent.insertBefore(alert, mainContent.firstChild);
 
-    // Auto-remover após 5 segundos
+    // Auto-remover com fade out
     setTimeout(function() {
       alert.style.opacity = '0';
-      alert.style.transition = 'opacity 0.3s ease';
-      setTimeout(function() { alert.remove(); }, 300);
+      alert.style.transform = 'translateY(-10px)';
+      setTimeout(() => alert.remove(), 300);
     }, 5000);
   }
 
@@ -455,10 +695,8 @@
       return;
     }
 
-    const requests = JSON.parse(localStorage.getItem('hospped_requests') || '[]');
-    const userRequests = requests.filter(function(r) {
-      return r.contactEmail === user.email;
-    });
+    const requests = Utils.storage.get(CONFIG.storageKeys.requests) || [];
+    const userRequests = requests.filter(r => r.contactEmail === user.email);
 
     if (userRequests.length === 0) {
       container.innerHTML = '<p class="text-center">Nenhuma solicitação encontrada.</p>';
@@ -466,15 +704,42 @@
     }
 
     container.innerHTML = userRequests.map(function(req) {
-      return '<div class="request-item">' +
-        '<div class="request-item-header">' +
-          '<strong>' + escapeHtml(req.destination) + '</strong>' +
-          '<span class="request-item-status pending">Em análise</span>' +
-        '</div>' +
-        '<div class="request-item-dates">' + escapeHtml(req.checkIn) + ' a ' + escapeHtml(req.checkOut) + '</div>' +
-        '<div class="request-item-destination">' + (req.hotelPreference ? 'Hotel: ' + escapeHtml(req.hotelPreference) : 'Sem preferência') + '</div>' +
-      '</div>';
+      const statusClass = req.status || 'pending';
+      const statusText = {
+        pending: 'Em análise',
+        approved: 'Aprovada',
+        rejected: 'Não aprovada'
+      }[statusClass] || 'Em análise';
+
+      return '<article class="request-item">' +
+        '<header class="request-item-header">' +
+          '<strong>' + Utils.escapeHtml(req.destination) + '</strong>' +
+          '<span class="request-item-status ' + statusClass + '">' + statusText + '</span>' +
+        '</header>' +
+        '<p class="request-item-dates">' + Utils.escapeHtml(req.checkIn) + ' a ' + Utils.escapeHtml(req.checkOut) + '</p>' +
+        '<p class="request-item-destination">' + (req.hotelPreference ? 'Hotel: ' + Utils.escapeHtml(req.hotelPreference) : 'Sem preferência') + '</p>' +
+        '<footer class="request-item-footer">' +
+          '<small>Solicitado em: ' + new Date(req.timestamp).toLocaleDateString('pt-BR') + '</small>' +
+        '</footer>' +
+      '</article>';
     }).join('');
+  }
+
+  // ===== SMOOTH SCROLL PARA LINKS INTERNOS =====
+  function initSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href === '#') return;
+        
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          history.pushState(null, null, href);
+        }
+      });
+    });
   }
 
   // ===== INICIALIZAÇÃO =====
@@ -482,7 +747,10 @@
     initMobileMenu();
     initAuthModal();
     initDatePickers();
+    initPhoneMask();
+    initQuickSearch();
     initBookingForm();
+    initSmoothScroll();
 
     // Verificar usuário logado
     const user = getCurrentUser();
@@ -490,7 +758,12 @@
       updateUserInterface(user);
     }
 
-    // Renderizar solicitações se estiver no dashboard
+    // Prefill do formulário de contato
+    if (document.querySelector(CONFIG.selectors.bookingForm)) {
+      setTimeout(prefillContactForm, 50);
+    }
+
+    // Renderizar dashboard
     if (document.getElementById('userRequestsList')) {
       renderUserRequests();
     }
