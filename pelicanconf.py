@@ -74,3 +74,6 @@ TEMPLATE_VISIBLE_SETTINGS = {
     'AUTHOR': AUTHOR,
     'COLORS': COLORS,
 }
+# REMOVA ou COMENTE estas linhas:
+# PAGE_URL = '{slug}.html'
+# PAGE_SAVE_AS = '{slug}.html'

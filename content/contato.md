@@ -1,7 +1,6 @@
 Title: Contato - Fale com a Hospped
 Description: Solicite uma cotação para gestão de viagens corporativas ou acadêmicas. Resposta em até 24h.
 Slug: contato
-Save_as: contato.html
 Status: published
 
 <!-- HERO -->

@@ -1,7 +1,6 @@
 Title: Sobre a Hospped
 Description: Conheça a Hospped: sua parceira em gestão de viagens corporativas e acadêmicas.
 Slug: sobre
-Save_as: sobre.html
 Status: published
 
 <!-- HERO -->
