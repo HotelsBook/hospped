@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Solicite sua reserva corporativa ou acadêmica com a Hospped. Gestão profissional de viagens institucionais.">
-  <meta name="keywords" content="gestão de viagens corporativas, mobilidade acadêmica, reservas institucionais">
-  <title>Contato e Solicitação de Reserva | Hospped</title>
+  <meta name="description" content="Entre em contato com a Hospped para gestão de viagens corporativas e acadêmicas.">
+  <title>Contato | Hospped</title>
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="canonical" href="https://hotelsbook.github.io/hospped/contato.html">
 </head>
@@ -17,326 +16,230 @@
         <span class="logo-text">Hos<span class="pp-highlight">pp</span>ed</span>
         <span class="logo-tagline">by HotelsBook</span>
       </a>
-      <button class="mobile-menu-btn" aria-label="Abrir menu" aria-expanded="false">&#9776;</button>
+      <button class="mobile-menu-btn" aria-label="Abrir menu">&#9776;</button>
       <nav>
         <ul>
           <li><a href="index.html">Início</a></li>
-          <li><a href="servicos.html">Serviços</a></li>
+          <li><a href="servicos.html">Soluções</a></li>
           <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="segmentos.html">Segmentos</a></li>
           <li><a href="contato.html" class="active">Contato</a></li>
         </ul>
       </nav>
       <div class="user-actions">
-        <a href="#" class="btn-login" data-auth-trigger>Acessar conta</a>
+        <a href="#" class="btn-login" data-auth-trigger>Área do Cliente</a>
       </div>
     </div>
   </header>
 
   <!-- Hero -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Solicite sua Reserva</h1>
-      <p>Preencha o formulário abaixo e nossa equipe entrará em contato para confirmar sua solicitação.</p>
+  <section class="hero" style="background: var(--jade-deep); padding: 4rem 0; color: white; text-align: center;">
+    <div class="container">
+      <h1 style="color: white;">Entre em Contato</h1>
+      <p style="color: rgba(255,255,255,0.9); max-width: 700px; margin: 0 auto;">
+        Nossa equipe está pronta para entender suas necessidades e apresentar a melhor solução.
+      </p>
     </div>
   </section>
 
-  <!-- Formulário de Solicitação -->
+  <!-- Formulário de Contato -->
   <section>
-    <div class="section-container">
-      <h2 class="section-title">Nova Solicitação de Reserva</h2>
-      <p class="section-subtitle">Informações detalhadas nos ajudam a encontrar a melhor opção para sua instituição.</p>
-      
-      <form id="bookingRequestForm" class="card" novalidate>
-        <!-- Datas e Destino -->
-        <div class="form-row">
-          <div class="form-group">
-            <label for="checkIn" class="required">Data de Chegada</label>
-            <div class="date-picker-wrapper">
-              <input type="text" id="checkIn" name="checkIn" class="date-picker-input" placeholder="Selecione a data" required autocomplete="off">
-              <div class="date-picker-dropdown">
-                <div class="date-picker-header">
-                  <button type="button" class="date-picker-nav date-picker-prev" aria-label="Mês anterior">&#10094;</button>
-                  <span class="date-picker-month"></span>
-                  <button type="button" class="date-picker-nav date-picker-next" aria-label="Próximo mês">&#10095;</button>
-                </div>
-                <div class="date-picker-grid">
-                  <div class="date-picker-day-name">Seg</div>
-                  <div class="date-picker-day-name">Ter</div>
-                  <div class="date-picker-day-name">Qua</div>
-                  <div class="date-picker-day-name">Qui</div>
-                  <div class="date-picker-day-name">Sex</div>
-                  <div class="date-picker-day-name">Sáb</div>
-                  <div class="date-picker-day-name">Dom</div>
-                </div>
-                <div class="date-picker-actions">
-                  <button type="button" class="btn btn-outline date-picker-clear">Limpar</button>
-                  <button type="button" class="btn date-picker-apply">Aplicar</button>
-                </div>
+    <div class="container">
+      <div class="tech-content">
+        <div>
+          <h2>Solicitar Proposta</h2>
+          <p class="lead">Preencha o formulário e retornaremos em até 24 horas úteis.</p>
+          
+          <form id="contactForm" class="card" style="padding: 2rem; box-shadow: var(--shadow); border-radius: var(--border-radius-lg);" novalidate>
+            <!-- Tipo de Solicitação -->
+            <div class="form-group">
+              <label class="required">Tipo de Solicitação</label>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                <label style="display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1rem; border: 2px solid var(--input-border); border-radius: var(--border-radius); cursor: pointer; transition: var(--transition);">
+                  <input type="radio" name="requestType" value="proposal" required style="accent-color: var(--jade-deep);">
+                  <span>Solicitar Proposta</span>
+                </label>
+                <label style="display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1rem; border: 2px solid var(--input-border); border-radius: var(--border-radius); cursor: pointer; transition: var(--transition);">
+                  <input type="radio" name="requestType" value="demo" style="accent-color: var(--jade-deep);">
+                  <span>Agendar Demonstração</span>
+                </label>
               </div>
             </div>
-            <span class="form-note">Datas disponíveis para reserva</span>
-          </div>
-          
-          <div class="form-group">
-            <label for="checkOut" class="required">Data de Saída</label>
-            <div class="date-picker-wrapper">
-              <input type="text" id="checkOut" name="checkOut" class="date-picker-input" placeholder="Selecione a data" required autocomplete="off">
-              <div class="date-picker-dropdown">
-                <div class="date-picker-header">
-                  <button type="button" class="date-picker-nav date-picker-prev" aria-label="Mês anterior">&#10094;</button>
-                  <span class="date-picker-month"></span>
-                  <button type="button" class="date-picker-nav date-picker-next" aria-label="Próximo mês">&#10095;</button>
-                </div>
-                <div class="date-picker-grid">
-                  <div class="date-picker-day-name">Seg</div>
-                  <div class="date-picker-day-name">Ter</div>
-                  <div class="date-picker-day-name">Qua</div>
-                  <div class="date-picker-day-name">Qui</div>
-                  <div class="date-picker-day-name">Sex</div>
-                  <div class="date-picker-day-name">Sáb</div>
-                  <div class="date-picker-day-name">Dom</div>
-                </div>
-                <div class="date-picker-actions">
-                  <button type="button" class="btn btn-outline date-picker-clear">Limpar</button>
-                  <button type="button" class="btn date-picker-apply">Aplicar</button>
-                </div>
+
+            <!-- Dados da Instituição -->
+            <div class="form-group">
+              <label for="companyName" class="required">Nome da Instituição</label>
+              <input type="text" id="companyName" name="companyName" class="form-control" placeholder="Razão social ou nome fantasia" required>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="segment" class="required">Segmento</label>
+                <select id="segment" name="segment" class="form-control" required>
+                  <option value="">Selecione</option>
+                  <option value="empresas">Empresa Privada</option>
+                  <option value="educacao">Instituição de Ensino</option>
+                  <option value="publico">Órgão Público</option>
+                  <option value="associacoes">Associação/Entidade</option>
+                  <option value="outro">Outro</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="companySize">Porte da Instituição</label>
+                <select id="companySize" name="companySize" class="form-control">
+                  <option value="">Selecione</option>
+                  <option value="micro">Microempresa (até 9 colaboradores)</option>
+                  <option value="pequena">Pequena (10-49 colaboradores)</option>
+                  <option value="media">Média (50-249 colaboradores)</option>
+                  <option value="grande">Grande (250+ colaboradores)</option>
+                </select>
               </div>
             </div>
-          </div>
-        </div>
 
-        <div class="form-group">
-          <label for="destination" class="required">Destino / Endereço de Interesse</label>
-          <input type="text" id="destination" name="destination" class="form-control" placeholder="Ex: Centro de Juazeiro do Norte - CE" required>
-          <span class="form-note">Informe cidade, bairro ou endereço específico</span>
-        </div>
+            <!-- Dados de Contato -->
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contactName" class="required">Nome do Responsável</label>
+                <input type="text" id="contactName" name="contactName" class="form-control" placeholder="Seu nome completo" required>
+              </div>
+              <div class="form-group">
+                <label for="contactPosition">Cargo / Departamento</label>
+                <input type="text" id="contactPosition" name="contactPosition" class="form-control" placeholder="Ex: Gerente de RH">
+              </div>
+            </div>
 
-        <div class="form-group">
-          <label for="hotelPreference">Preferência de Hotel (Opcional)</label>
-          <input type="text" id="hotelPreference" name="hotelPreference" class="form-control" placeholder="Nome do hotel ou rede de preferência">
-          <span class="form-note">Deixe em branco para recebermos opções personalizadas</span>
-        </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contactEmail" class="required">E-mail Corporativo</label>
+                <input type="email" id="contactEmail" name="contactEmail" class="form-control" placeholder="seu.email@instituicao.com.br" required>
+              </div>
+              <div class="form-group">
+                <label for="contactPhone" class="required">Telefone</label>
+                <input type="tel" id="contactPhone" name="contactPhone" class="form-control" placeholder="(XX) XXXXX-XXXX" required>
+              </div>
+            </div>
 
-        <!-- Quantidade -->
-        <div class="form-row">
-          <div class="form-group">
-            <label for="guests" class="required">Número de Hóspedes</label>
-            <select id="guests" name="guests" class="form-control" required>
-              <option value="">Selecione</option>
-              <option value="1">1 hóspede</option>
-              <option value="2">2 hóspedes</option>
-              <option value="3">3 hóspedes</option>
-              <option value="4">4 hóspedes</option>
-              <option value="5+">5 ou mais hóspedes</option>
-            </select>
-          </div>
-          
-          <div class="form-group">
-            <label for="rooms" class="required">Número de Quartos</label>
-            <select id="rooms" name="rooms" class="form-control" required>
-              <option value="">Selecione</option>
-              <option value="1">1 quarto</option>
-              <option value="2">2 quartos</option>
-              <option value="3">3 quartos</option>
-              <option value="4+">4 ou mais quartos</option>
-            </select>
-          </div>
-        </div>
+            <!-- Detalhes da Necessidade -->
+            <div class="form-group">
+              <label for="travelVolume">Volume Estimado de Viagens</label>
+              <select id="travelVolume" name="travelVolume" class="form-control">
+                <option value="">Selecione</option>
+                <option value="baixo">Até 10 viagens/mês</option>
+                <option value="medio">11-50 viagens/mês</option>
+                <option value="alto">51-200 viagens/mês</option>
+                <option value="muito-alto">200+ viagens/mês</option>
+              </select>
+            </div>
 
-        <!-- Tipo de Viagem -->
-        <div class="form-group">
-          <label for="travelPurpose" class="required">Finalidade da Viagem</label>
-          <select id="travelPurpose" name="travelPurpose" class="form-control" required>
-            <option value="">Selecione</option>
-            <option value="corporate">Viagem Corporativa</option>
-            <option value="academic">Mobilidade Acadêmica</option>
-            <option value="event">Evento / Congresso</option>
-            <option value="training">Treinamento / Capacitação</option>
-            <option value="other">Outro</option>
-          </select>
-        </div>
+            <div class="form-group">
+              <label for="destinations">Principais Destinos de Interesse</label>
+              <input type="text" id="destinations" name="destinations" class="form-control" placeholder="Ex: São Paulo, Brasília, Nordeste">
+              <span class="form-note">Separe por vírgulas</span>
+            </div>
 
-        <!-- Informações da Instituição -->
-        <div class="form-group">
-          <label for="companyName" class="required">Nome da Empresa / Instituição</label>
-          <input type="text" id="companyName" name="companyName" class="form-control" placeholder="Razão social ou nome da instituição" required>
-        </div>
+            <div class="form-group">
+              <label for="additionalInfo">Informações Adicionais</label>
+              <textarea id="additionalInfo" name="additionalInfo" class="form-control" rows="4" placeholder="Descreva suas necessidades específicas, preferências, orçamento estimado, etc."></textarea>
+            </div>
 
-        <!-- Contato -->
-        <div class="form-row">
-          <div class="form-group">
-            <label for="contactName" class="required">Nome do Responsável</label>
-            <input type="text" id="contactName" name="contactName" class="form-control" placeholder="Seu nome completo" required>
-          </div>
-          
-          <div class="form-group">
-            <label for="contactEmail" class="required">E-mail Corporativo</label>
-            <input type="email" id="contactEmail" name="contactEmail" class="form-control" placeholder="seu.email@empresa.com.br" required>
-          </div>
-        </div>
+            <!-- LGPD -->
+            <div class="form-group">
+              <label style="display: flex; align-items: flex-start; gap: 0.5rem; font-weight: normal; font-size: 0.9rem;">
+                <input type="checkbox" name="lgpd" required style="margin-top: 0.25rem; accent-color: var(--jade-deep);">
+                <span>Concordo com o processamento dos meus dados para fins de contato comercial, conforme nossa <a href="#" style="color: var(--jade-deep);">Política de Privacidade</a>.</span>
+              </label>
+            </div>
 
-        <div class="form-group">
-          <label for="contactPhone" class="required">Telefone para Contato</label>
-          <input type="tel" id="contactPhone" name="contactPhone" class="form-control" placeholder="(XX) XXXXX-XXXX" required>
-        </div>
-
-        <!-- Informações Adicionais -->
-        <div class="form-group">
-          <label for="additionalInfo">Informações Adicionais</label>
-          <textarea id="additionalInfo" name="additionalInfo" class="form-control" rows="4" placeholder="Descreva necessidades específicas, preferências de acomodação, orçamento estimado, etc."></textarea>
-        </div>
-
-        <!-- Termos -->
-        <div class="form-group">
-          <label style="display: flex; align-items: flex-start; gap: 0.5rem; font-weight: normal;">
-            <input type="checkbox" name="terms" required style="margin-top: 0.25rem;">
-            <span>Concordo com o processamento dos dados informados para fins de solicitação de reserva, conforme nossa <a href="#" style="color: var(--jade-deep);">Política de Privacidade</a>.</span>
-          </label>
-        </div>
-
-        <button type="submit" class="btn btn-large" style="width: 100%;">Enviar Solicitação</button>
-        
-        <p class="form-note text-center mt-1">
-          Ao enviar, você autoriza nossa equipe a entrar em contato para confirmar os detalhes da sua solicitação.
-        </p>
-      </form>
-    </div>
-  </section>
-
-  <!-- Informações de Contato -->
-  <section style="background: var(--white);">
-    <div class="section-container">
-      <h2 class="section-title">Outros Canais de Atendimento</h2>
-      
-      <div class="contato-layout">
-        <div>
-          <h3 style="color: var(--jade-deep); margin-bottom: 1rem;">Contato Direto</h3>
-          
-          <div style="margin-bottom: 1rem;">
-            <strong style="color: var(--charcoal);">E-mail</strong><br>
-            <a href="mailto:contato@hospped.com.br" style="color: var(--jade-deep);">contato@hospped.com.br</a>
-          </div>
-          
-          <div style="margin-bottom: 1rem;">
-            <strong style="color: var(--charcoal);">WhatsApp Corporativo</strong><br>
-            <a href="https://wa.me/5588999999999" target="_blank" rel="noopener" style="color: var(--jade-deep);">(88) 9 9999-9999</a>
-          </div>
-          
-          <div>
-            <strong style="color: var(--charcoal);">Endereço</strong><br>
-            Juazeiro do Norte - Ceará, Brasil
-          </div>
-        </div>
-        
-        <div>
-          <div class="card">
-            <h3 style="color: var(--jade-deep); margin-bottom: 1rem;">Tempo de Resposta</h3>
-            <p style="color: var(--gray-medium); margin-bottom: 1.5rem;">
-              Todas as solicitações são analisadas por nossa equipe especializada. Entramos em contato em até 24 horas para confirmar disponibilidade e apresentar opções.
-            </p>
+            <button type="submit" class="btn btn-large btn-primary" style="width: 100%;">Enviar Solicitação</button>
             
-            <div style="background: var(--cloud-dancer); padding: 1rem; border-radius: 8px;">
-              <strong style="color: var(--jade-deep);">Dica para agilizar:</strong>
-              <p style="font-size: 0.95rem; margin-top: 0.5rem; color: var(--gray-medium);">
-                Informe com precisão as datas, número de hóspedes e qualquer restrição orçamentária. Isso nos permite apresentar opções mais alinhadas à sua necessidade.
-              </p>
+            <p class="form-note text-center mt-1">
+              Ao enviar, você autoriza nossa equipe a entrar em contato para confirmar os detalhes da sua solicitação.
+            </p>
+          </form>
+        </div>
+
+        <!-- Informações de Contato -->
+        <div>
+          <h2>Outros Canais de Atendimento</h2>
+          
+          <div class="card" style="padding: 1.5rem; margin-bottom: 1.5rem;">
+            <h4 style="color: var(--jade-deep); margin-bottom: 1rem;">Contato Direto</h4>
+            
+            <div style="margin-bottom: 1rem;">
+              <strong style="color: var(--charcoal); display: block; margin-bottom: 0.25rem;">&#128231; E-mail</strong>
+              <a href="mailto:contato@hospped.com.br">contato@hospped.com.br</a>
             </div>
+            
+            <div style="margin-bottom: 1rem;">
+              <strong style="color: var(--charcoal); display: block; margin-bottom: 0.25rem;">&#128222; WhatsApp</strong>
+              <a href="https://wa.me/5588999999999">(88) 9 9999-9999</a>
+            </div>
+            
+            <div>
+              <strong style="color: var(--charcoal); display: block; margin-bottom: 0.25rem;">&#128205; Endereço</strong>
+              <span>Juazeiro do Norte - Ceará, Brasil</span>
+            </div>
+          </div>
+
+          <div class="card" style="padding: 1.5rem;">
+            <h4 style="color: var(--jade-deep); margin-bottom: 1rem;">Horário de Atendimento</h4>
+            <p style="margin: 0; color: var(--gray-medium);">
+              <strong>Segunda a Sexta:</strong> 8h às 18h<br>
+              <strong>Suporte Emergencial:</strong> 24/7 para clientes ativos
+            </p>
+          </div>
+
+          <div class="card" style="padding: 1.5rem; background: var(--info-light); border: 1px solid #A6D5DB; margin-top: 1.5rem;">
+            <h4 style="color: var(--info); margin-bottom: 0.5rem;">&#9888; Dica para Agilizar</h4>
+            <p style="margin: 0; font-size: 0.95rem; color: var(--charcoal);">
+              Informe no formulário: volume estimado de viagens, principais destinos e qualquer restrição orçamentária. Isso nos permite apresentar opções mais alinhadas à sua necessidade.
+            </p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Modal de Autenticação -->
-  <div class="modal-overlay" id="authModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <div class="modal">
-      <div class="modal-header">
-        <h3 id="modalTitle">Acesso à Conta</h3>
-        <button type="button" class="modal-close" aria-label="Fechar">&times;</button>
-      </div>
+  <!-- FAQ -->
+  <section style="background: var(--gray-bg);">
+    <div class="container">
+      <h2 class="section-title">Perguntas Frequentes</h2>
       
-      <div class="modal-body">
-        <!-- Formulário de Login -->
-        <form id="loginForm">
-          <div class="form-group">
-            <label for="loginEmail" class="required">E-mail</label>
-            <input type="email" id="loginEmail" class="form-control" required>
-          </div>
-          <div class="form-group">
-            <label for="loginPassword" class="required">Senha</label>
-            <input type="password" id="loginPassword" class="form-control" required>
-          </div>
-          <span class="form-error">Mensagem de erro</span>
-          <button type="submit" class="btn btn-large" style="width: 100%;">Entrar</button>
-          <p class="text-center mt-1">
-            <button type="button" id="toggleToRegister" class="modal-toggle">Criar nova conta</button>
-          </p>
-        </form>
-        
-        <!-- Formulário de Registro -->
-        <form id="registerForm" class="hidden">
-          <div class="form-group">
-            <label for="registerName" class="required">Nome Completo</label>
-            <input type="text" id="registerName" class="form-control" required>
-          </div>
-          <div class="form-group">
-            <label for="registerEmail" class="required">E-mail Corporativo</label>
-            <input type="email" id="registerEmail" class="form-control" required>
-          </div>
-          <div class="form-group">
-            <label for="registerCompany">Empresa / Instituição</label>
-            <input type="text" id="registerCompany" class="form-control">
-          </div>
-          <div class="form-group">
-            <label for="registerPassword" class="required">Senha</label>
-            <input type="password" id="registerPassword" class="form-control" required minlength="8">
-            <span class="form-note">Mínimo de 8 caracteres</span>
-          </div>
-          <span class="form-error">Mensagem de erro</span>
-          <button type="submit" class="btn btn-large" style="width: 100%;">Criar Conta</button>
-          <p class="text-center mt-1">
-            <button type="button" id="toggleToLogin" class="modal-toggle">Já tenho uma conta</button>
-          </p>
-        </form>
-      </div>
-      
-      <div class="modal-footer">
-        <p style="font-size: 0.85rem; color: var(--gray-medium);">
-          Ao criar uma conta, você concorda com nossos <a href="#" style="color: var(--jade-deep);">Termos de Uso</a> e <a href="#" style="color: var(--jade-deep);">Política de Privacidade</a>.
-        </p>
+      <div style="max-width: 800px; margin: 0 auto;">
+        <details style="background: var(--white); border-radius: var(--border-radius); padding: 1rem; margin-bottom: 0.5rem; box-shadow: var(--shadow-sm);">
+          <summary style="font-weight: 600; color: var(--jade-deep); cursor: pointer; padding: 0.5rem 0;">Quanto tempo leva para receber uma proposta?</summary>
+          <p style="margin: 1rem 0 0; color: var(--gray-medium);">Nossa equipe analisa sua solicitação e retorna em até 24 horas úteis com uma proposta preliminar personalizada.</p>
+        </details>
+
+        <details style="background: var(--white); border-radius: var(--border-radius); padding: 1rem; margin-bottom: 0.5rem; box-shadow: var(--shadow-sm);">
+          <summary style="font-weight: 600; color: var(--jade-deep); cursor: pointer; padding: 0.5rem 0;">Há custo para solicitar uma proposta?</summary>
+          <p style="margin: 1rem 0 0; color: var(--gray-medium);">Não. O diagnóstico inicial e a elaboração da proposta são gratuitos e sem compromisso.</p>
+        </details>
+
+        <details style="background: var(--white); border-radius: var(--border-radius); padding: 1rem; margin-bottom: 0.5rem; box-shadow: var(--shadow-sm);">
+          <summary style="font-weight: 600; color: var(--jade-deep); cursor: pointer; padding: 0.5rem 0;">Preciso assinar contrato de fidelidade?</summary>
+          <p style="margin: 1rem 0 0; color: var(--gray-medium);">Não. Trabalhamos sem fidelidade. Você mantém a liberdade de ajustar ou encerrar o serviço quando desejar.</p>
+        </details>
+
+        <details style="background: var(--white); border-radius: var(--border-radius); padding: 1rem; margin-bottom: 0.5rem; box-shadow: var(--shadow-sm);">
+          <summary style="font-weight: 600; color: var(--jade-deep); cursor: pointer; padding: 0.5rem 0;">Atendem fora do Ceará?</summary>
+          <p style="margin: 1rem 0 0; color: var(--gray-medium);">Sim. Temos parcerias em todo o território nacional e atendemos instituições de qualquer região do Brasil.</p>
+        </details>
       </div>
     </div>
-  </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container text-center">
+      <h2>Ainda com Dúvidas?</h2>
+      <p>Fale diretamente com nosso time comercial via WhatsApp.</p>
+      <a href="https://wa.me/5588999999999" class="btn btn-large btn-outline-light">&#128172; Conversar no WhatsApp</a>
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer>
-    <div class="footer-content">
-      <div class="footer-brand">
-        <a href="index.html" class="logo">
-          <span class="logo-text">Hos<span class="pp-highlight">pp</span>ed</span>
-          <span class="logo-tagline">by HotelsBook</span>
-        </a>
-        <p style="margin-top: 1rem; opacity: 0.9;">Gestão profissional de viagens corporativas e acadêmicas.</p>
-      </div>
-      <div class="footer-links">
-        <h4>Navegação</h4>
-        <a href="index.html">Início</a>
-        <a href="servicos.html">Serviços</a>
-        <a href="sobre.html">Sobre</a>
-        <a href="contato.html">Contato</a>
-      </div>
-      <div class="footer-links">
-        <h4>Legal</h4>
-        <a href="#">Termos de Uso</a>
-        <a href="#">Política de Privacidade</a>
-        <a href="#">Política de Cookies</a>
-      </div>
-      <div class="footer-links">
-        <h4>Contato</h4>
-        <a href="mailto:contato@hospped.com.br">contato@hospped.com.br</a>
-        <a href="https://wa.me/5588999999999" target="_blank" rel="noopener">WhatsApp</a>
-      </div>
-    </div>
     <div class="footer-bottom">
       <p>&copy; 2026 Hospped by HotelsBook. Todos os direitos reservados.</p>
     </div>

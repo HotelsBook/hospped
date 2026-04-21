@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Hospped: Gestão profissional de viagens corporativas e acadêmicas. Economia, controle e atendimento humano para sua instituição.">
+  <meta name="description" content="Hospped: Gestão inteligente de viagens corporativas e acadêmicas. Economia, controle e atendimento humano para sua instituição.">
   <meta name="keywords" content="gestão de viagens corporativas, mobilidade acadêmica, reservas corporativas, viagens institucionais">
-  <title>Hospped | Gestão de Viagens Corporativas e Acadêmicas</title>
+  <title>Hospped | Gestão Inteligente de Viagens Corporativas e Acadêmicas</title>
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="canonical" href="https://hotelsbook.github.io/hospped/">
 </head>
@@ -17,79 +17,382 @@
         <span class="logo-text">Hos<span class="pp-highlight">pp</span>ed</span>
         <span class="logo-tagline">by HotelsBook</span>
       </a>
-      <button class="mobile-menu-btn" aria-label="Abrir menu" aria-expanded="false">☰</button>
+      <button class="mobile-menu-btn" aria-label="Abrir menu" aria-expanded="false">&#9776;</button>
       <nav>
-  <ul>
-    <li><a href="index.html">Início</a></li>
-    <li><a href="servicos.html">Serviços</a></li>
-    <li><a href="sobre.html">Sobre</a></li>
-    <li><a href="contato.html">Contato</a></li>
-  </ul>
-</nav>
-<div class="user-actions">
-  <a href="#" class="btn-login" data-auth-trigger>Acessar conta</a>
-</div>
+        <ul>
+          <li><a href="index.html" class="active">Início</a></li>
+          <li><a href="servicos.html">Soluções</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="segmentos.html">Segmentos</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </nav>
+      <div class="user-actions">
+        <a href="#" class="btn-login" data-auth-trigger>Área do Cliente</a>
+      </div>
+    </div>
   </header>
 
-  <!-- Hero -->
-  <section class="hero">
+  <!-- Hero Section -->
+  <section class="hero hero-home">
+    <div class="hero-background" style="background-image: url('#Imagem de: Escritório corporativo moderno com profissionais em reunião de negócios#');"></div>
+    <div class="hero-overlay"></div>
     <div class="hero-content">
       <h1>Gestão Inteligente de Viagens para Empresas e Instituições de Ensino</h1>
-      <p>Atendimento humano, negociação direta e controle total de gastos. Economize até 30% em suas viagens corporativas e acadêmicas.</p>
-      <a href="contato.html" class="btn btn-large">Solicitar Proposta</a>
+      <p class="hero-subtitle">Tecnologia, atendimento humano e negociação direta para reduzir custos e simplificar a gestão de viagens da sua organização.</p>
+      <div class="hero-cta">
+        <a href="contato.html" class="btn btn-large btn-primary">Solicitar Proposta</a>
+        <a href="servicos.html" class="btn btn-large btn-outline-light">Conhecer Soluções</a>
+      </div>
     </div>
   </section>
 
-  <!-- Diferenciais -->
-  <section>
+  <!-- Search Box (CTA Rápido) -->
+  <div class="search-box-container hero-search">
+    <form class="search-box" id="quickSearchForm" action="contato.html">
+      <div class="search-field">
+        <label for="searchDestination">
+          <span class="search-label-icon">&#128205;</span>
+          <span class="search-label-text">Destino</span>
+        </label>
+        <input type="text" id="searchDestination" name="destination" placeholder="Para onde você vai?" required>
+      </div>
+      <div class="search-field">
+        <label for="searchCheckIn">
+          <span class="search-label-icon">&#128197;</span>
+          <span class="search-label-text">Chegada</span>
+        </label>
+        <input type="date" id="searchCheckIn" name="checkIn" required>
+      </div>
+      <div class="search-field">
+        <label for="searchCheckOut">
+          <span class="search-label-icon">&#128197;</span>
+          <span class="search-label-text">Saída</span>
+        </label>
+        <input type="date" id="searchCheckOut" name="checkOut" required>
+      </div>
+      <div class="search-field">
+        <label for="searchGuests">
+          <span class="search-label-icon">&#128101;</span>
+          <span class="search-label-text">Hóspedes</span>
+        </label>
+        <select id="searchGuests" name="guests">
+          <option value="1">1 hóspede</option>
+          <option value="2" selected>2 hóspedes</option>
+          <option value="3">3 hóspedes</option>
+          <option value="4">4 hóspedes</option>
+          <option value="5+">5+ hóspedes</option>
+        </select>
+      </div>
+      <button type="submit" class="search-button">
+        <span>Buscar</span>
+        <span class="search-button-icon">&#10140;</span>
+      </button>
+    </form>
+  </div>
+
+  <!-- Números de Credibilidade -->
+  <section class="stats-section">
     <div class="section-container">
-      <h2 class="section-title">Por que instituições escolhem a Hospped?</h2>
-      <div class="diferenciais-grid">
-        <div class="card">
-          <div class="card-icon"></div>
-          <h3>Economia Real</h3>
-          <p>Negociação direta com hotéis e fornecedores para reduzir custos sem abrir mão da qualidade.</p>
-          <ul>
-            <li>Até 30% de economia</li>
-            <li>Sem taxas ocultas</li>
-            <li>Relatórios de gastos</li>
-          </ul>
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number">30%</div>
+          <div class="stat-label">Economia média em viagens</div>
         </div>
-        <div class="card">
-          <div class="card-icon"></div>
-          <h3>Atendimento Humano</h3>
-          <p>Nada de robôs ou chatbots. Nossa equipe especializada resolve suas demandas com agilidade.</p>
-          <ul>
-            <li>Resposta em até 24h</li>
-            <li>Consultor dedicado</li>
-            <li>Suporte personalizado</li>
-          </ul>
+        <div class="stat-item">
+          <div class="stat-number">24h</div>
+          <div class="stat-label">Tempo médio de resposta</div>
         </div>
-        <div class="card">
-          <div class="card-icon"></div>
-          <h3>Flexibilidade Total</h3>
-          <p>Sem contratos de fidelidade. Você mantém o controle e pode ajustar conforme sua necessidade.</p>
-          <ul>
-            <li>Sem fidelidade</li>
-            <li>Cancelamento flexível</li>
-            <li>Adaptação à sua rotina</li>
-          </ul>
+        <div class="stat-item">
+          <div class="stat-number">+500</div>
+          <div class="stat-label">Clientes atendidos</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">98%</div>
+          <div class="stat-label">Taxa de satisfação</div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Serviços Principais -->
+  <section class="services-section">
+    <div class="section-container">
+      <h2 class="section-title">Soluções Completas para Gestão de Viagens</h2>
+      <p class="section-subtitle">Oferecemos um portfólio completo de serviços para atender todas as necessidades da sua instituição</p>
+      
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">&#128188;</div>
+          <h3>Viagens Corporativas</h3>
+          <p>Gestão completa de deslocamentos empresariais com foco em economia, controle e eficiência operacional.</p>
+          <ul class="service-features">
+            <li>Reservas de hospedagem e transporte</li>
+            <li>Negociação direta com fornecedores</li>
+            <li>Relatórios de gastos por departamento</li>
+            <li>Política de viagens personalizada</li>
+            <li>Suporte 24/7 para imprevistos</li>
+          </ul>
+          <a href="servicos.html#corporativo" class="btn btn-outline">Saiba mais</a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">&#127891;</div>
+          <h3>Mobilidade Acadêmica</h3>
+          <p>Soluções especializadas para instituições de ensino, congressos e programas de intercâmbio.</p>
+          <ul class="service-features">
+            <li>Gestão de grupos acadêmicos</li>
+            <li>Logística para eventos e congressos</li>
+            <li>Parcerias com hotéis universitários</li>
+            <li>Suporte a estudantes internacionais</li>
+            <li>Relatórios para prestação de contas</li>
+          </ul>
+          <a href="servicos.html#academico" class="btn btn-outline">Saiba mais</a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">&#127881;</div>
+          <h3>Eventos Corporativos</h3>
+          <p>Criamos experiências inovadoras para eventos nacionais e internacionais com consultoria e gestão completa.</p>
+          <ul class="service-features">
+            <li>Planejamento e organização</li>
+            <li>Seleção de fornecedores</li>
+            <li>Gestão de logística e hospedagem</li>
+            <li>Acompanhamento in loco</li>
+            <li>Pós-evento e relatórios</li>
+          </ul>
+          <a href="servicos.html#eventos" class="btn btn-outline">Saiba mais</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Diferenciais Competitivos -->
+  <section class="differentials-section">
+    <div class="section-container">
+      <h2 class="section-title">Por que Empresas Escolhem a Hospped?</h2>
+      
+      <div class="differentials-grid">
+        <div class="differential-card">
+          <div class="differential-icon">&#128176;</div>
+          <h3>Economia Comprovada</h3>
+          <p>Negociação direta com hotéis e fornecedores para reduzir custos sem abrir mão da qualidade. Economia média de 30% comparado a OTAs tradicionais.</p>
+        </div>
+
+        <div class="differential-card">
+          <div class="differential-icon">&#129309;</div>
+          <h3>Atendimento Humano</h3>
+          <p>Nada de robôs ou chatbots. Nossa equipe especializada resolve suas demandas com agilidade e personalização.</p>
+        </div>
+
+        <div class="differential-card">
+          <div class="differential-icon">&#128274;</div>
+          <h3>Sem Fidelidade</h3>
+          <p>Sem contratos de fidelidade. Você mantém o controle e pode ajustar conforme sua necessidade.</p>
+        </div>
+
+        <div class="differential-card">
+          <div class="differential-icon">&#128202;</div>
+          <h3>Controle Total</h3>
+          <p>Relatórios claros e transparência total nos gastos. Dashboard completo para acompanhamento em tempo real.</p>
+        </div>
+
+        <div class="differential-card">
+          <div class="differential-icon">&#128640;</div>
+          <h3>Flexibilidade</h3>
+          <p>Cancelamento flexível e adaptação à sua rotina. Entendemos que imprevistos acontecem.</p>
+        </div>
+
+        <div class="differential-card">
+          <div class="differential-icon">&#127758;</div>
+          <h3>Abrangência Nacional</h3>
+          <p>Parcerias em todo o território nacional. Atendemos de grandes centros a cidades do interior.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Como Funciona -->
+  <section class="how-it-works-section">
+    <div class="section-container">
+      <h2 class="section-title">Como Funciona</h2>
+      <p class="section-subtitle">Processo simples e eficiente para otimizar suas viagens institucionais</p>
+      
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <h3>Você Solicita</h3>
+          <p>Preencha o formulário com suas necessidades: destino, datas, número de hóspedes e preferências específicas.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <h3>Nós Negociamos</h3>
+          <p>Nossa equipe entra em contato direto com os melhores hotéis e fornecedores para conseguir as melhores tarifas.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <h3>Você Aprova</h3>
+          <p>Receba opções personalizadas, escolha a melhor e confirme sua reserva com total segurança e suporte.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">4</div>
+          <h3>Acompanhamos</h3>
+          <p>Suporte durante toda a viagem e pós-viagem com relatórios detalhados para sua gestão.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Segmentos de Atuação -->
+  <section class="segments-section">
+    <div class="section-container">
+      <h2 class="section-title">Segmentos de Atuação</h2>
+      <p class="section-subtitle">Atendemos diversos setores com soluções personalizadas</p>
+      
+      <div class="segments-grid">
+        <div class="segment-card">
+          <h3>Empresas Privadas</h3>
+          <p>De startups a multinacionais, oferecemos gestão eficiente de viagens corporativas.</p>
+          <a href="segmentos.html#empresas" class="link-arrow">Saiba mais &#10140;</a>
+        </div>
+
+        <div class="segment-card">
+          <h3>Instituições de Ensino</h3>
+          <p>Universidades, faculdades e escolas com mobilidade acadêmica e eventos.</p>
+          <a href="segmentos.html#educacao" class="link-arrow">Saiba mais &#10140;</a>
+        </div>
+
+        <div class="segment-card">
+          <h3>Órgãos Públicos</h3>
+          <p>Gestão de viagens para servidores e participação em eventos institucionais.</p>
+          <a href="segmentos.html#publico" class="link-arrow">Saiba mais &#10140;</a>
+        </div>
+
+        <div class="segment-card">
+          <h3>Associações e Entidades</h3>
+          <p>Congressos, convenções e eventos para associados e membros.</p>
+          <a href="segmentos.html#associacoes" class="link-arrow">Saiba mais &#10140;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tecnologia -->
+  <section class="technology-section">
+    <div class="section-container">
+      <div class="tech-content">
+        <div class="tech-text">
+          <h2>Tecnologia que Simplifica</h2>
+          <p>Plataforma intuitiva e integrada para facilitar a gestão de viagens da sua instituição.</p>
+          <ul class="tech-features">
+            <li>Dashboard em tempo real</li>
+            <li>Relatórios personalizados</li>
+            <li>Integração com sistemas existentes</li>
+            <li>Aplicativo mobile</li>
+            <li>Notificações automáticas</li>
+            <li>Políticas de viagem configuráveis</li>
+          </ul>
+          <a href="contato.html" class="btn btn-large">Agendar Demonstração</a>
+        </div>
+        <div class="tech-image">
+          #Imagem de: Dashboard da plataforma Hospped mostrando relatórios e gráficos de viagens#
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Depoimentos -->
+  <section class="testimonials-section">
+    <div class="section-container">
+      <h2 class="section-title">O que Nossos Clientes Dizem</h2>
+      
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-text">"A Hospped reduziu nossos custos de viagem em 35% no primeiro ano. O atendimento é excepcional e a economia é real."</div>
+          <div class="testimonial-author">
+            <strong>Maria Silva</strong>
+            <span>Diretora Financeira - Empresa XYZ</span>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-text">"Finalmente uma empresa que entende as necessidades específicas de uma universidade. Mobilidade acadêmica com excelência."</div>
+          <div class="testimonial-author">
+            <strong>Prof. Dr. João Santos</strong>
+            <span>Pró-Reitor - Universidade Federal</span>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-text">"Atendimento humano faz toda diferença. Quando temos um imprevisto, sabemos que podemos contar com a equipe da Hospped."</div>
+          <div class="testimonial-author">
+            <strong>Carlos Mendes</strong>
+            <span>Gerente de RH - Indústria ABC</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog/Notícias -->
+  <section class="blog-section">
+    <div class="section-container">
+      <h2 class="section-title">Insights e Tendências</h2>
+      <p class="section-subtitle">Conteúdo exclusivo sobre gestão de viagens corporativas e acadêmicas</p>
+      
+      <div class="blog-grid">
+        <article class="blog-card">
+          <div class="blog-image">
+            #Imagem de: Gráfico mostrando tendências de viagens corporativas 2025#
+          </div>
+          <div class="blog-content">
+            <h3>Tendências de Viagens Corporativas para 2025</h3>
+            <p>Descubra as principais tendências que vão impactar a gestão de viagens corporativas no próximo ano.</p>
+            <a href="#" class="read-more">Ler mais &#10140;</a>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <div class="blog-image">
+            #Imagem de: Profissional trabalhando em viagem de negócios#
+          </div>
+          <div class="blog-content">
+            <h3>Como Reduzir Custos sem Perder Qualidade</h3>
+            <p>Estratégias práticas para otimizar o orçamento de viagens da sua empresa.</p>
+            <a href="#" class="read-more">Ler mais &#10140;</a>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <div class="blog-image">
+            #Imagem de: Evento acadêmico com participantes#
+          </div>
+          <div class="blog-content">
+            <h3>Mobilidade Acadêmica: Guia Completo</h3>
+            <p>Tudo o que você precisa saber para organizar viagens acadêmicas com eficiência.</p>
+            <a href="#" class="read-more">Ler mais &#10140;</a>
+          </div>
+        </article>
+      </div>
+      
       <div class="text-center mt-2">
-        <a href="servicos.html" class="btn btn-outline">Conheça nossos serviços</a>
+        <a href="#" class="btn btn-outline">Ver todas as publicações</a>
       </div>
     </div>
   </section>
 
   <!-- CTA Final -->
-  <section style="background: var(--white);">
+  <section class="cta-section">
     <div class="section-container text-center">
-      <h2 style="color: var(--jade-deep); margin-bottom: 1rem;">Pronto para otimizar suas viagens?</h2>
-      <p style="color: var(--gray-medium); margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
-        Entre em contato e descubra como a Hospped pode transformar a gestão de viagens da sua empresa ou instituição.
-      </p>
-      <a href="contato.html" class="btn btn-large">Falar com um especialista</a>
+      <h2>Pronto para Otimizar suas Viagens?</h2>
+      <p>Entre em contato e descubra como a Hospped pode transformar a gestão de viagens da sua empresa ou instituição.</p>
+      <div class="cta-buttons">
+        <a href="contato.html" class="btn btn-large btn-primary">Falar com um Especialista</a>
+        <a href="tel:+5588999999999" class="btn btn-large btn-outline-light">&#128222; (88) 9 9999-9999</a>
+      </div>
     </div>
   </section>
 
@@ -101,86 +404,54 @@
           <span class="logo-text">Hos<span class="pp-highlight">pp</span>ed</span>
           <span class="logo-tagline">by HotelsBook</span>
         </a>
-        <p style="margin-top: 1rem; opacity: 0.9;">Gestão profissional de viagens corporativas e acadêmicas.</p>
+        <p>Gestão profissional de viagens corporativas e acadêmicas com atendimento humano e economia comprovada.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="LinkedIn">&#128279;</a>
+          <a href="#" aria-label="Instagram">&#128247;</a>
+          <a href="#" aria-label="Facebook">&#128172;</a>
+        </div>
       </div>
+      
       <div class="footer-links">
-        <h4>Navegação</h4>
-        <a href="index.html">Início</a>
-        <a href="servicos.html">Serviços</a>
-        <a href="sobre.html">Sobre</a>
-        <a href="contato.html">Contato</a>
+        <h4>Soluções</h4>
+        <a href="servicos.html#corporativo">Viagens Corporativas</a>
+        <a href="servicos.html#academico">Mobilidade Acadêmica</a>
+        <a href="servicos.html#eventos">Eventos Corporativos</a>
+        <a href="servicos.html#lazer">Viagens de Lazer</a>
       </div>
+      
       <div class="footer-links">
+        <h4>Empresa</h4>
+        <a href="sobre.html">Sobre Nós</a>
+        <a href="#">Nossos Números</a>
+        <a href="#">Cases de Sucesso</a>
+        <a href="#">Blog</a>
+        <a href="contato.html">Trabalhe Conosco</a>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Recursos</h4>
+        <a href="#">Central de Ajuda</a>
+        <a href="#">Política de Privacidade</a>
+        <a href="#">Termos de Uso</a>
+        <a href="#">Política de Cookies</a>
+        <a href="#">LGPD</a>
+      </div>
+      
+      <div class="footer-contact">
         <h4>Contato</h4>
-        <a href="mailto:contato@hospped.com.br">contato@hospped.com.br</a>
-        <a href="https://wa.me/5588999999999" target="_blank">WhatsApp</a>
-        <a href="#">Juazeiro do Norte - CE</a>
+        <p>&#128231; contato@hospped.com.br</p>
+        <p>&#128222; (88) 9 9999-9999</p>
+        <p>&#128205; Juazeiro do Norte - CE</p>
+        <p>&#128336; Atendimento: Seg-Sex, 8h às 18h</p>
       </div>
     </div>
+    
     <div class="footer-bottom">
       <p>&copy; 2026 Hospped by HotelsBook. Todos os direitos reservados.</p>
     </div>
   </footer>
 
-  <!-- Modal de Autenticação -->
-  <div class="modal-overlay" id="authModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <div class="modal">
-      <div class="modal-header">
-        <h3 id="modalTitle">Acesso à Conta</h3>
-        <button type="button" class="modal-close" aria-label="Fechar">&times;</button>
-      </div>
-      
-      <div class="modal-body">
-        <form id="loginForm">
-          <div class="form-group">
-            <label for="loginEmail" class="required">E-mail</label>
-            <input type="email" id="loginEmail" class="form-control" required>
-          </div>
-          <div class="form-group">
-            <label for="loginPassword" class="required">Senha</label>
-            <input type="password" id="loginPassword" class="form-control" required>
-          </div>
-          <span class="form-error">Mensagem de erro</span>
-          <button type="submit" class="btn btn-large" style="width: 100%;">Entrar</button>
-          <p class="text-center mt-1">
-            <button type="button" id="toggleToRegister" class="modal-toggle">Criar nova conta</button>
-          </p>
-        </form>
-        
-        <form id="registerForm" class="hidden">
-          <div class="form-group">
-            <label for="registerName" class="required">Nome Completo</label>
-            <input type="text" id="registerName" class="form-control" required>
-          </div>
-          <div class="form-group">
-            <label for="registerEmail" class="required">E-mail Corporativo</label>
-            <input type="email" id="registerEmail" class="form-control" required>
-          </div>
-          <div class="form-group">
-            <label for="registerCompany">Empresa / Instituição</label>
-            <input type="text" id="registerCompany" class="form-control">
-          </div>
-          <div class="form-group">
-            <label for="registerPassword" class="required">Senha</label>
-            <input type="password" id="registerPassword" class="form-control" required minlength="8">
-            <span class="form-note">Mínimo de 8 caracteres</span>
-          </div>
-          <span class="form-error">Mensagem de erro</span>
-          <button type="submit" class="btn btn-large" style="width: 100%;">Criar Conta</button>
-          <p class="text-center mt-1">
-            <button type="button" id="toggleToLogin" class="modal-toggle">Já tenho uma conta</button>
-          </p>
-        </form>
-      </div>
-      
-      <div class="modal-footer">
-        <p style="font-size: 0.85rem; color: var(--gray-medium);">
-          Ao criar uma conta, você concorda com nossos <a href="#" style="color: var(--jade-deep);">Termos de Uso</a> e <a href="#" style="color: var(--jade-deep);">Política de Privacidade</a>.
-        </p>
-      </div>
-    </div>
-  </div>
-  
   <script src="assets/js/main.js"></script>
 </body>
 </html>
