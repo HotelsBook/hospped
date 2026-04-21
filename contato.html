@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Entre em contato com a Hospped para gestão de viagens corporativas e acadêmicas.">
+  <meta name="description" content="Entre em contato com a Hospped para gestão de viagens corporativas e acadêmicas em todo o Brasil.">
   <title>Contato | Hospped</title>
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="canonical" href="https://hotelsbook.github.io/hospped/contato.html">
@@ -26,9 +26,6 @@
           <li><a href="contato.html" class="active">Contato</a></li>
         </ul>
       </nav>
-      <div class="user-actions">
-        <a href="#" class="btn-login" data-auth-trigger>Área do Cliente</a>
-      </div>
     </div>
   </header>
 
@@ -37,7 +34,7 @@
     <div class="container">
       <h1 style="color: white;">Entre em Contato</h1>
       <p style="color: rgba(255,255,255,0.9); max-width: 700px; margin: 0 auto;">
-        Nossa equipe está pronta para entender suas necessidades e apresentar a melhor solução.
+        Nossa equipe está pronta para entender suas necessidades e apresentar a melhor solução para sua instituição.
       </p>
     </div>
   </section>
@@ -48,20 +45,21 @@
       <div class="tech-content">
         <div>
           <h2>Solicitar Proposta</h2>
-          <p class="lead">Preencha o formulário e retornaremos em até 24 horas úteis.</p>
+          <p class="lead">Preencha o formulário abaixo e nossa equipe retornará em até 24 horas úteis com uma proposta personalizada.</p>
           
-          <form id="contactForm" class="card" style="padding: 2rem; box-shadow: var(--shadow); border-radius: var(--border-radius-lg);" novalidate>
+          <form id="contactForm" class="card" style="padding: 2.5rem; box-shadow: var(--shadow); border-radius: var(--border-radius-lg); border-top: 4px solid var(--gold-soft);" novalidate>
+            
             <!-- Tipo de Solicitação -->
             <div class="form-group">
               <label class="required">Tipo de Solicitação</label>
               <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-                <label style="display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1rem; border: 2px solid var(--input-border); border-radius: var(--border-radius); cursor: pointer; transition: var(--transition);">
-                  <input type="radio" name="requestType" value="proposal" required style="accent-color: var(--jade-deep);">
-                  <span>Solicitar Proposta</span>
+                <label style="display: flex; align-items: center; gap: 0.75rem; padding: 1rem; border: 2px solid var(--input-border); border-radius: var(--border-radius); cursor: pointer; transition: var(--transition); background: var(--white);">
+                  <input type="radio" name="requestType" value="proposal" required style="accent-color: var(--jade-deep); width: 18px; height: 18px;">
+                  <span style="font-weight: 500;">Solicitar Proposta</span>
                 </label>
-                <label style="display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1rem; border: 2px solid var(--input-border); border-radius: var(--border-radius); cursor: pointer; transition: var(--transition);">
-                  <input type="radio" name="requestType" value="demo" style="accent-color: var(--jade-deep);">
-                  <span>Agendar Demonstração</span>
+                <label style="display: flex; align-items: center; gap: 0.75rem; padding: 1rem; border: 2px solid var(--input-border); border-radius: var(--border-radius); cursor: pointer; transition: var(--transition); background: var(--white);">
+                  <input type="radio" name="requestType" value="demo" style="accent-color: var(--jade-deep); width: 18px; height: 18px;">
+                  <span style="font-weight: 500;">Agendar Conversa</span>
                 </label>
               </div>
             </div>
@@ -69,14 +67,14 @@
             <!-- Dados da Instituição -->
             <div class="form-group">
               <label for="companyName" class="required">Nome da Instituição</label>
-              <input type="text" id="companyName" name="companyName" class="form-control" placeholder="Razão social ou nome fantasia" required>
+              <input type="text" id="companyName" name="companyName" class="form-control" placeholder="Razão social ou nome fantasia" required autocomplete="organization">
             </div>
 
             <div class="form-row">
               <div class="form-group">
                 <label for="segment" class="required">Segmento</label>
                 <select id="segment" name="segment" class="form-control" required>
-                  <option value="">Selecione</option>
+                  <option value="">Selecione o segmento</option>
                   <option value="empresas">Empresa Privada</option>
                   <option value="educacao">Instituição de Ensino</option>
                   <option value="publico">Órgão Público</option>
@@ -87,11 +85,11 @@
               <div class="form-group">
                 <label for="companySize">Porte da Instituição</label>
                 <select id="companySize" name="companySize" class="form-control">
-                  <option value="">Selecione</option>
-                  <option value="micro">Microempresa (até 9 colaboradores)</option>
-                  <option value="pequena">Pequena (10-49 colaboradores)</option>
-                  <option value="media">Média (50-249 colaboradores)</option>
-                  <option value="grande">Grande (250+ colaboradores)</option>
+                  <option value="">Selecione o porte</option>
+                  <option value="micro">Até 9 colaboradores</option>
+                  <option value="pequena">10 a 49 colaboradores</option>
+                  <option value="media">50 a 249 colaboradores</option>
+                  <option value="grande">250+ colaboradores</option>
                 </select>
               </div>
             </div>
@@ -100,22 +98,22 @@
             <div class="form-row">
               <div class="form-group">
                 <label for="contactName" class="required">Nome do Responsável</label>
-                <input type="text" id="contactName" name="contactName" class="form-control" placeholder="Seu nome completo" required>
+                <input type="text" id="contactName" name="contactName" class="form-control" placeholder="Seu nome completo" required autocomplete="name">
               </div>
               <div class="form-group">
                 <label for="contactPosition">Cargo / Departamento</label>
-                <input type="text" id="contactPosition" name="contactPosition" class="form-control" placeholder="Ex: Gerente de RH">
+                <input type="text" id="contactPosition" name="contactPosition" class="form-control" placeholder="Ex: Gerente de RH" autocomplete="organization-title">
               </div>
             </div>
 
             <div class="form-row">
               <div class="form-group">
                 <label for="contactEmail" class="required">E-mail Corporativo</label>
-                <input type="email" id="contactEmail" name="contactEmail" class="form-control" placeholder="seu.email@instituicao.com.br" required>
+                <input type="email" id="contactEmail" name="contactEmail" class="form-control" placeholder="seu.email@instituicao.com.br" required autocomplete="email">
               </div>
               <div class="form-group">
                 <label for="contactPhone" class="required">Telefone</label>
-                <input type="tel" id="contactPhone" name="contactPhone" class="form-control" placeholder="(XX) XXXXX-XXXX" required>
+                <input type="tel" id="contactPhone" name="contactPhone" class="form-control" placeholder="(XX) XXXXX-XXXX" required autocomplete="tel">
               </div>
             </div>
 
@@ -123,37 +121,37 @@
             <div class="form-group">
               <label for="travelVolume">Volume Estimado de Viagens</label>
               <select id="travelVolume" name="travelVolume" class="form-control">
-                <option value="">Selecione</option>
-                <option value="baixo">Até 10 viagens/mês</option>
-                <option value="medio">11-50 viagens/mês</option>
-                <option value="alto">51-200 viagens/mês</option>
-                <option value="muito-alto">200+ viagens/mês</option>
+                <option value="">Selecione uma opção</option>
+                <option value="baixo">Até 10 viagens por mês</option>
+                <option value="medio">11 a 50 viagens por mês</option>
+                <option value="alto">51 a 200 viagens por mês</option>
+                <option value="muito-alto">Mais de 200 viagens por mês</option>
               </select>
             </div>
 
             <div class="form-group">
               <label for="destinations">Principais Destinos de Interesse</label>
               <input type="text" id="destinations" name="destinations" class="form-control" placeholder="Ex: São Paulo, Brasília, Nordeste">
-              <span class="form-note">Separe por vírgulas</span>
+              <span class="form-note">Separe os destinos por vírgula</span>
             </div>
 
             <div class="form-group">
               <label for="additionalInfo">Informações Adicionais</label>
-              <textarea id="additionalInfo" name="additionalInfo" class="form-control" rows="4" placeholder="Descreva suas necessidades específicas, preferências, orçamento estimado, etc."></textarea>
+              <textarea id="additionalInfo" name="additionalInfo" class="form-control" rows="4" placeholder="Descreva suas necessidades específicas, preferências de hospedagem, orçamento estimado ou qualquer outra informação relevante."></textarea>
             </div>
 
             <!-- LGPD -->
-            <div class="form-group">
-              <label style="display: flex; align-items: flex-start; gap: 0.5rem; font-weight: normal; font-size: 0.9rem;">
-                <input type="checkbox" name="lgpd" required style="margin-top: 0.25rem; accent-color: var(--jade-deep);">
-                <span>Concordo com o processamento dos meus dados para fins de contato comercial, conforme nossa <a href="#" style="color: var(--jade-deep);">Política de Privacidade</a>.</span>
+            <div class="form-group" style="background: var(--gray-bg); padding: 1rem; border-radius: var(--border-radius);">
+              <label style="display: flex; align-items: flex-start; gap: 0.75rem; font-weight: normal; font-size: 0.9rem; line-height: 1.5;">
+                <input type="checkbox" name="lgpd" required style="margin-top: 0.25rem; accent-color: var(--jade-deep); width: 18px; height: 18px; flex-shrink: 0;">
+                <span>Concordo com o processamento dos meus dados para fins de contato comercial, conforme nossa <a href="#" style="color: var(--jade-deep); text-decoration: none; font-weight: 500;">Política de Privacidade</a>.</span>
               </label>
             </div>
 
-            <button type="submit" class="btn btn-large btn-primary" style="width: 100%;">Enviar Solicitação</button>
+            <button type="submit" class="btn btn-large btn-primary" style="width: 100%; padding: 1.125rem 2.5rem; font-size: 1.05rem;">Enviar Solicitação</button>
             
-            <p class="form-note text-center mt-1">
-              Ao enviar, você autoriza nossa equipe a entrar em contato para confirmar os detalhes da sua solicitação.
+            <p class="form-note text-center mt-2" style="color: var(--gray-medium);">
+              Ao enviar, você autoriza nossa equipe a entrar em contato para confirmar os detalhes da sua solicitação. Resposta em até 24 horas úteis.
             </p>
           </form>
         </div>
@@ -162,37 +160,38 @@
         <div>
           <h2>Outros Canais de Atendimento</h2>
           
-          <div class="card" style="padding: 1.5rem; margin-bottom: 1.5rem;">
-            <h4 style="color: var(--jade-deep); margin-bottom: 1rem;">Contato Direto</h4>
+          <div class="card" style="padding: 1.75rem; margin-bottom: 1.5rem; border-top: 4px solid var(--gold-soft);">
+            <h4 style="color: var(--jade-deep); margin-bottom: 1.25rem; font-size: 1.1rem;">Contato Direto</h4>
             
-            <div style="margin-bottom: 1rem;">
-              <strong style="color: var(--charcoal); display: block; margin-bottom: 0.25rem;">&#128231; E-mail</strong>
-              <a href="mailto:contato@hospped.com.br">contato@hospped.com.br</a>
+            <div style="margin-bottom: 1.25rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--gray-lighter);">
+              <strong style="color: var(--charcoal); display: block; margin-bottom: 0.375rem; font-weight: 600;">E-mail</strong>
+              <a href="mailto:contato@hospped.com.br" style="font-size: 1.05rem;">contato@hospped.com.br</a>
             </div>
             
-            <div style="margin-bottom: 1rem;">
-              <strong style="color: var(--charcoal); display: block; margin-bottom: 0.25rem;">&#128222; WhatsApp</strong>
-              <a href="https://wa.me/5588999999999">(88) 9 9999-9999</a>
+            <div style="margin-bottom: 1.25rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--gray-lighter);">
+              <strong style="color: var(--charcoal); display: block; margin-bottom: 0.375rem; font-weight: 600;">WhatsApp</strong>
+              <a href="https://wa.me/5588999999999" style="font-size: 1.05rem;">(88) 9 9999-9999</a>
             </div>
             
             <div>
-              <strong style="color: var(--charcoal); display: block; margin-bottom: 0.25rem;">&#128205; Endereço</strong>
-              <span>Juazeiro do Norte - Ceará, Brasil</span>
+              <strong style="color: var(--charcoal); display: block; margin-bottom: 0.375rem; font-weight: 600;">Horário de Atendimento</strong>
+              <span style="color: var(--gray-medium);">Segunda a sexta, 8h às 18h</span>
             </div>
           </div>
 
-          <div class="card" style="padding: 1.5rem;">
-            <h4 style="color: var(--jade-deep); margin-bottom: 1rem;">Horário de Atendimento</h4>
-            <p style="margin: 0; color: var(--gray-medium);">
-              <strong>Segunda a Sexta:</strong> 8h às 18h<br>
-              <strong>Suporte Emergencial:</strong> 24/7 para clientes ativos
+          <div class="card" style="padding: 1.75rem; border-top: 4px solid var(--gold-soft);">
+            <h4 style="color: var(--jade-deep); margin-bottom: 1rem; font-size: 1.1rem;">Suporte para Clientes</h4>
+            <p style="margin: 0; color: var(--gray-medium); line-height: 1.7;">
+              Clientes ativos têm acesso a suporte prioritário 24/7 para imprevistos e emergências durante viagens.
             </p>
           </div>
 
-          <div class="card" style="padding: 1.5rem; background: var(--info-light); border: 1px solid #A6D5DB; margin-top: 1.5rem;">
-            <h4 style="color: var(--info); margin-bottom: 0.5rem;">&#9888; Dica para Agilizar</h4>
-            <p style="margin: 0; font-size: 0.95rem; color: var(--charcoal);">
-              Informe no formulário: volume estimado de viagens, principais destinos e qualquer restrição orçamentária. Isso nos permite apresentar opções mais alinhadas à sua necessidade.
+          <div class="card" style="padding: 1.75rem; background: var(--info-light); border: 1px solid #A6D5DB; border-left: 4px solid var(--info); margin-top: 1.5rem;">
+            <h4 style="color: var(--info); margin-bottom: 0.75rem; font-size: 1.1rem; display: flex; align-items: center; gap: 0.5rem;">
+              <span style="font-weight: 700;">Dica para Agilizar</span>
+            </h4>
+            <p style="margin: 0; font-size: 0.95rem; color: var(--charcoal); line-height: 1.7;">
+              Informe no formulário: volume estimado de viagens, principais destinos e qualquer restrição orçamentária. Isso nos permite apresentar opções mais alinhadas à sua necessidade desde o primeiro contato.
             </p>
           </div>
         </div>
@@ -200,51 +199,175 @@
     </div>
   </section>
 
-  <!-- FAQ -->
+  <!-- FAQ Estratégico -->
   <section style="background: var(--gray-bg);">
     <div class="container">
       <h2 class="section-title">Perguntas Frequentes</h2>
+      <p class="section-subtitle">Respostas para as dúvidas mais comuns sobre nossos serviços</p>
       
-      <div style="max-width: 800px; margin: 0 auto;">
-        <details style="background: var(--white); border-radius: var(--border-radius); padding: 1rem; margin-bottom: 0.5rem; box-shadow: var(--shadow-sm);">
-          <summary style="font-weight: 600; color: var(--jade-deep); cursor: pointer; padding: 0.5rem 0;">Quanto tempo leva para receber uma proposta?</summary>
-          <p style="margin: 1rem 0 0; color: var(--gray-medium);">Nossa equipe analisa sua solicitação e retorna em até 24 horas úteis com uma proposta preliminar personalizada.</p>
-        </details>
+      <div class="faq-container">
+        
+        <div class="faq-item">
+          <button class="faq-question" type="button">Qual o prazo para receber uma proposta?</button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Nossa equipe analisa sua solicitação e retorna em até 24 horas úteis com uma proposta preliminar personalizada. Para demandas urgentes, entre em contato diretamente via WhatsApp para priorização.
+            </div>
+          </div>
+        </div>
 
-        <details style="background: var(--white); border-radius: var(--border-radius); padding: 1rem; margin-bottom: 0.5rem; box-shadow: var(--shadow-sm);">
-          <summary style="font-weight: 600; color: var(--jade-deep); cursor: pointer; padding: 0.5rem 0;">Há custo para solicitar uma proposta?</summary>
-          <p style="margin: 1rem 0 0; color: var(--gray-medium);">Não. O diagnóstico inicial e a elaboração da proposta são gratuitos e sem compromisso.</p>
-        </details>
+        <div class="faq-item">
+          <button class="faq-question" type="button">Há custo para solicitar uma proposta ou diagnóstico?</button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Não. O diagnóstico inicial, a elaboração da proposta e a primeira consulta são totalmente gratuitos e sem compromisso. Nosso objetivo é demonstrar valor antes de qualquer comprometimento.
+            </div>
+          </div>
+        </div>
 
-        <details style="background: var(--white); border-radius: var(--border-radius); padding: 1rem; margin-bottom: 0.5rem; box-shadow: var(--shadow-sm);">
-          <summary style="font-weight: 600; color: var(--jade-deep); cursor: pointer; padding: 0.5rem 0;">Preciso assinar contrato de fidelidade?</summary>
-          <p style="margin: 1rem 0 0; color: var(--gray-medium);">Não. Trabalhamos sem fidelidade. Você mantém a liberdade de ajustar ou encerrar o serviço quando desejar.</p>
-        </details>
+        <div class="faq-item">
+          <button class="faq-question" type="button">Preciso assinar contrato de fidelidade?</button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Não trabalhamos com contratos de fidelidade. Acreditamos que a continuidade da parceria deve ser conquistada diariamente pela qualidade do nosso serviço. Você mantém total liberdade para ajustar ou encerrar quando desejar.
+            </div>
+          </div>
+        </div>
 
-        <details style="background: var(--white); border-radius: var(--border-radius); padding: 1rem; margin-bottom: 0.5rem; box-shadow: var(--shadow-sm);">
-          <summary style="font-weight: 600; color: var(--jade-deep); cursor: pointer; padding: 0.5rem 0;">Atendem fora do Ceará?</summary>
-          <p style="margin: 1rem 0 0; color: var(--gray-medium);">Sim. Temos parcerias em todo o território nacional e atendemos instituições de qualquer região do Brasil.</p>
-        </details>
+        <div class="faq-item">
+          <button class="faq-question" type="button">Como funciona a negociação com hotéis?</button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Utilizamos nossa rede de parcerias e volume de demanda para negociar tarifas corporativas diretas com hotéis e fornecedores. Essa abordagem nos permite oferecer condições mais vantajosas do que as disponíveis em plataformas públicas.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button">Atendem em todo o território nacional?</button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Sim. Possuímos parcerias estratégicas em todas as regiões do Brasil, desde grandes centros urbanos até cidades do interior. Nossa capacidade de atendimento é nacional, com foco em entender as particularidades de cada destino.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button">Como é feita a prestação de contas?</button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Fornecemos relatórios detalhados e personalizáveis por centro de custo, departamento ou projeto. Para instituições públicas, nossos relatórios seguem os padrões exigidos para auditoria e prestação de contas junto a órgãos de controle.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button">É possível integrar com nossos sistemas internos?</button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Sim. Oferecemos integração com sistemas de gestão (ERP), folha de pagamento e ferramentas de controle de despesas. Nossa equipe técnica avalia sua infraestrutura atual e propõe a melhor abordagem de integração.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" type="button">O que acontece em caso de imprevistos durante a viagem?</button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Clientes ativos têm acesso a suporte 24/7 para emergências. Nossa equipe está preparada para resolver imprevistos como cancelamentos, alterações de rota ou necessidades de última hora, minimizando impactos na sua operação.
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
+  <!-- CTA Final -->
   <section class="cta-section">
     <div class="container text-center">
-      <h2>Ainda com Dúvidas?</h2>
-      <p>Fale diretamente com nosso time comercial via WhatsApp.</p>
-      <a href="https://wa.me/5588999999999" class="btn btn-large btn-outline-light">&#128172; Conversar no WhatsApp</a>
+      <h2 style="color: white;">Ainda com Dúvidas?</h2>
+      <p style="color: rgba(255,255,255,0.9); max-width: 600px; margin: 0 auto 2rem;">
+        Fale diretamente com nosso time comercial. Estamos prontos para entender sua necessidade.
+      </p>
+      <a href="https://wa.me/5588999999999" class="btn btn-large btn-outline-light">Conversar no WhatsApp</a>
     </div>
   </section>
 
   <!-- Footer -->
   <footer>
+    <div class="footer-content">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <span class="logo-text">Hos<span class="pp-highlight">pp</span>ed</span>
+          <span class="logo-tagline">by HotelsBook</span>
+        </a>
+        <p>Gestão profissional de viagens corporativas e acadêmicas com atendimento humano e economia comprovada.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="LinkedIn">in</a>
+          <a href="#" aria-label="Instagram">IG</a>
+          <a href="#" aria-label="Facebook">FB</a>
+        </div>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Soluções</h4>
+        <a href="servicos.html#corporativo">Viagens Corporativas</a>
+        <a href="servicos.html#academico">Mobilidade Acadêmica</a>
+        <a href="servicos.html#eventos">Eventos Corporativos</a>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Empresa</h4>
+        <a href="sobre.html">Sobre Nós</a>
+        <a href="segmentos.html">Segmentos</a>
+        <a href="contato.html">Trabalhe Conosco</a>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Recursos</h4>
+        <a href="#">Política de Privacidade</a>
+        <a href="#">Termos de Uso</a>
+        <a href="#">LGPD</a>
+      </div>
+      
+      <div class="footer-contact">
+        <h4>Contato</h4>
+        <p>contato@hospped.com.br</p>
+        <p>(88) 9 9999-9999</p>
+        <p>Atendimento: Seg-Sex, 8h às 18h</p>
+      </div>
+    </div>
+    
     <div class="footer-bottom">
       <p>&copy; 2026 Hospped by HotelsBook. Todos os direitos reservados.</p>
     </div>
   </footer>
 
   <script src="assets/js/main.js"></script>
+  
+  <script>
+    // FAQ Accordion functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const faqQuestions = document.querySelectorAll('.faq-question');
+      
+      faqQuestions.forEach(function(button) {
+        button.addEventListener('click', function() {
+          const faqItem = this.closest('.faq-item');
+          const isActive = faqItem.classList.contains('active');
+          
+          // Close all
+          document.querySelectorAll('.faq-item').forEach(function(item) {
+            item.classList.remove('active');
+          });
+          
+          // Toggle current
+          if (!isActive) {
+            faqItem.classList.add('active');
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>

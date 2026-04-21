@@ -27,69 +27,22 @@
           <li><a href="contato.html">Contato</a></li>
         </ul>
       </nav>
-      <div class="user-actions">
-        <a href="#" class="btn-login" data-auth-trigger>Área do Cliente</a>
-      </div>
     </div>
   </header>
 
-  <!-- Hero Section -->
+  <!-- Hero Section com Imagem -->
   <section class="hero hero-home">
-    <div class="hero-background" style="background-image: url('#Imagem de: Escritório corporativo moderno com profissionais em reunião de negócios#');"></div>
+    <div class="hero-background" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');"></div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <h1>Gestão Inteligente de Viagens para Empresas e Instituições de Ensino</h1>
-      <p class="hero-subtitle">Tecnologia, atendimento humano e negociação direta para reduzir custos e simplificar a gestão de viagens da sua organização.</p>
+      <p class="hero-subtitle">Atendimento humano, negociação direta e controle total de gastos. Economize até 30% em suas viagens corporativas e acadêmicas.</p>
       <div class="hero-cta">
         <a href="contato.html" class="btn btn-large btn-primary">Solicitar Proposta</a>
         <a href="servicos.html" class="btn btn-large btn-outline-light">Conhecer Soluções</a>
       </div>
     </div>
   </section>
-
-  <!-- Search Box (CTA Rápido) -->
-  <div class="search-box-container hero-search">
-    <form class="search-box" id="quickSearchForm" action="contato.html">
-      <div class="search-field">
-        <label for="searchDestination">
-          <span class="search-label-icon">&#128205;</span>
-          <span class="search-label-text">Destino</span>
-        </label>
-        <input type="text" id="searchDestination" name="destination" placeholder="Para onde você vai?" required>
-      </div>
-      <div class="search-field">
-        <label for="searchCheckIn">
-          <span class="search-label-icon">&#128197;</span>
-          <span class="search-label-text">Chegada</span>
-        </label>
-        <input type="date" id="searchCheckIn" name="checkIn" required>
-      </div>
-      <div class="search-field">
-        <label for="searchCheckOut">
-          <span class="search-label-icon">&#128197;</span>
-          <span class="search-label-text">Saída</span>
-        </label>
-        <input type="date" id="searchCheckOut" name="checkOut" required>
-      </div>
-      <div class="search-field">
-        <label for="searchGuests">
-          <span class="search-label-icon">&#128101;</span>
-          <span class="search-label-text">Hóspedes</span>
-        </label>
-        <select id="searchGuests" name="guests">
-          <option value="1">1 hóspede</option>
-          <option value="2" selected>2 hóspedes</option>
-          <option value="3">3 hóspedes</option>
-          <option value="4">4 hóspedes</option>
-          <option value="5+">5+ hóspedes</option>
-        </select>
-      </div>
-      <button type="submit" class="search-button">
-        <span>Buscar</span>
-        <span class="search-button-icon">&#10140;</span>
-      </button>
-    </form>
-  </div>
 
   <!-- Números de Credibilidade -->
   <section class="stats-section">
@@ -123,7 +76,12 @@
       
       <div class="services-grid">
         <div class="service-card">
-          <div class="service-icon">&#128188;</div>
+          <div class="service-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+            </svg>
+          </div>
           <h3>Viagens Corporativas</h3>
           <p>Gestão completa de deslocamentos empresariais com foco em economia, controle e eficiência operacional.</p>
           <ul class="service-features">
@@ -137,7 +95,12 @@
         </div>
 
         <div class="service-card">
-          <div class="service-icon">&#127891;</div>
+          <div class="service-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+              <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+            </svg>
+          </div>
           <h3>Mobilidade Acadêmica</h3>
           <p>Soluções especializadas para instituições de ensino, congressos e programas de intercâmbio.</p>
           <ul class="service-features">
@@ -151,7 +114,13 @@
         </div>
 
         <div class="service-card">
-          <div class="service-icon">&#127881;</div>
+          <div class="service-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+              <path d="M2 17l10 5 10-5"></path>
+              <path d="M2 12l10 5 10-5"></path>
+            </svg>
+          </div>
           <h3>Eventos Corporativos</h3>
           <p>Criamos experiências inovadoras para eventos nacionais e internacionais com consultoria e gestão completa.</p>
           <ul class="service-features">
@@ -174,37 +143,71 @@
       
       <div class="differentials-grid">
         <div class="differential-card">
-          <div class="differential-icon">&#128176;</div>
+          <div class="differential-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="1" x2="12" y2="23"></line>
+              <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+            </svg>
+          </div>
           <h3>Economia Comprovada</h3>
           <p>Negociação direta com hotéis e fornecedores para reduzir custos sem abrir mão da qualidade. Economia média de 30% comparado a OTAs tradicionais.</p>
         </div>
 
         <div class="differential-card">
-          <div class="differential-icon">&#129309;</div>
+          <div class="differential-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+          </div>
           <h3>Atendimento Humano</h3>
           <p>Nada de robôs ou chatbots. Nossa equipe especializada resolve suas demandas com agilidade e personalização.</p>
         </div>
 
         <div class="differential-card">
-          <div class="differential-icon">&#128274;</div>
+          <div class="differential-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+          </div>
           <h3>Sem Fidelidade</h3>
           <p>Sem contratos de fidelidade. Você mantém o controle e pode ajustar conforme sua necessidade.</p>
         </div>
 
         <div class="differential-card">
-          <div class="differential-icon">&#128202;</div>
+          <div class="differential-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="20" x2="18" y2="10"></line>
+              <line x1="12" y1="20" x2="12" y2="4"></line>
+              <line x1="6" y1="20" x2="6" y2="14"></line>
+            </svg>
+          </div>
           <h3>Controle Total</h3>
-          <p>Relatórios claros e transparência total nos gastos. Dashboard completo para acompanhamento em tempo real.</p>
+          <p>Relatórios claros e transparência total nos gastos. Acompanhamento completo de todas as viagens.</p>
         </div>
 
         <div class="differential-card">
-          <div class="differential-icon">&#128640;</div>
+          <div class="differential-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="23 4 23 10 17 10"></polyline>
+              <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+            </svg>
+          </div>
           <h3>Flexibilidade</h3>
           <p>Cancelamento flexível e adaptação à sua rotina. Entendemos que imprevistos acontecem.</p>
         </div>
 
         <div class="differential-card">
-          <div class="differential-icon">&#127758;</div>
+          <div class="differential-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+            </svg>
+          </div>
           <h3>Abrangência Nacional</h3>
           <p>Parcerias em todo o território nacional. Atendemos de grandes centros a cidades do interior.</p>
         </div>
@@ -256,49 +259,25 @@
         <div class="segment-card">
           <h3>Empresas Privadas</h3>
           <p>De startups a multinacionais, oferecemos gestão eficiente de viagens corporativas.</p>
-          <a href="segmentos.html#empresas" class="link-arrow">Saiba mais &#10140;</a>
+          <a href="segmentos.html#empresas" class="link-arrow">Saiba mais</a>
         </div>
 
         <div class="segment-card">
           <h3>Instituições de Ensino</h3>
           <p>Universidades, faculdades e escolas com mobilidade acadêmica e eventos.</p>
-          <a href="segmentos.html#educacao" class="link-arrow">Saiba mais &#10140;</a>
+          <a href="segmentos.html#educacao" class="link-arrow">Saiba mais</a>
         </div>
 
         <div class="segment-card">
           <h3>Órgãos Públicos</h3>
           <p>Gestão de viagens para servidores e participação em eventos institucionais.</p>
-          <a href="segmentos.html#publico" class="link-arrow">Saiba mais &#10140;</a>
+          <a href="segmentos.html#publico" class="link-arrow">Saiba mais</a>
         </div>
 
         <div class="segment-card">
           <h3>Associações e Entidades</h3>
           <p>Congressos, convenções e eventos para associados e membros.</p>
-          <a href="segmentos.html#associacoes" class="link-arrow">Saiba mais &#10140;</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Tecnologia -->
-  <section class="technology-section">
-    <div class="section-container">
-      <div class="tech-content">
-        <div class="tech-text">
-          <h2>Tecnologia que Simplifica</h2>
-          <p>Plataforma intuitiva e integrada para facilitar a gestão de viagens da sua instituição.</p>
-          <ul class="tech-features">
-            <li>Dashboard em tempo real</li>
-            <li>Relatórios personalizados</li>
-            <li>Integração com sistemas existentes</li>
-            <li>Aplicativo mobile</li>
-            <li>Notificações automáticas</li>
-            <li>Políticas de viagem configuráveis</li>
-          </ul>
-          <a href="contato.html" class="btn btn-large">Agendar Demonstração</a>
-        </div>
-        <div class="tech-image">
-          #Imagem de: Dashboard da plataforma Hospped mostrando relatórios e gráficos de viagens#
+          <a href="segmentos.html#associacoes" class="link-arrow">Saiba mais</a>
         </div>
       </div>
     </div>
@@ -337,53 +316,6 @@
     </div>
   </section>
 
-  <!-- Blog/Notícias -->
-  <section class="blog-section">
-    <div class="section-container">
-      <h2 class="section-title">Insights e Tendências</h2>
-      <p class="section-subtitle">Conteúdo exclusivo sobre gestão de viagens corporativas e acadêmicas</p>
-      
-      <div class="blog-grid">
-        <article class="blog-card">
-          <div class="blog-image">
-            #Imagem de: Gráfico mostrando tendências de viagens corporativas 2025#
-          </div>
-          <div class="blog-content">
-            <h3>Tendências de Viagens Corporativas para 2025</h3>
-            <p>Descubra as principais tendências que vão impactar a gestão de viagens corporativas no próximo ano.</p>
-            <a href="#" class="read-more">Ler mais &#10140;</a>
-          </div>
-        </article>
-
-        <article class="blog-card">
-          <div class="blog-image">
-            #Imagem de: Profissional trabalhando em viagem de negócios#
-          </div>
-          <div class="blog-content">
-            <h3>Como Reduzir Custos sem Perder Qualidade</h3>
-            <p>Estratégias práticas para otimizar o orçamento de viagens da sua empresa.</p>
-            <a href="#" class="read-more">Ler mais &#10140;</a>
-          </div>
-        </article>
-
-        <article class="blog-card">
-          <div class="blog-image">
-            #Imagem de: Evento acadêmico com participantes#
-          </div>
-          <div class="blog-content">
-            <h3>Mobilidade Acadêmica: Guia Completo</h3>
-            <p>Tudo o que você precisa saber para organizar viagens acadêmicas com eficiência.</p>
-            <a href="#" class="read-more">Ler mais &#10140;</a>
-          </div>
-        </article>
-      </div>
-      
-      <div class="text-center mt-2">
-        <a href="#" class="btn btn-outline">Ver todas as publicações</a>
-      </div>
-    </div>
-  </section>
-
   <!-- CTA Final -->
   <section class="cta-section">
     <div class="section-container text-center">
@@ -391,7 +323,7 @@
       <p>Entre em contato e descubra como a Hospped pode transformar a gestão de viagens da sua empresa ou instituição.</p>
       <div class="cta-buttons">
         <a href="contato.html" class="btn btn-large btn-primary">Falar com um Especialista</a>
-        <a href="tel:+5588999999999" class="btn btn-large btn-outline-light">&#128222; (88) 9 9999-9999</a>
+        <a href="tel:+5588999999999" class="btn btn-large btn-outline-light">(88) 9 9999-9999</a>
       </div>
     </div>
   </section>
@@ -406,9 +338,9 @@
         </a>
         <p>Gestão profissional de viagens corporativas e acadêmicas com atendimento humano e economia comprovada.</p>
         <div class="footer-social">
-          <a href="#" aria-label="LinkedIn">&#128279;</a>
-          <a href="#" aria-label="Instagram">&#128247;</a>
-          <a href="#" aria-label="Facebook">&#128172;</a>
+          <a href="#" aria-label="LinkedIn">in</a>
+          <a href="#" aria-label="Instagram">IG</a>
+          <a href="#" aria-label="Facebook">FB</a>
         </div>
       </div>
       
@@ -417,33 +349,27 @@
         <a href="servicos.html#corporativo">Viagens Corporativas</a>
         <a href="servicos.html#academico">Mobilidade Acadêmica</a>
         <a href="servicos.html#eventos">Eventos Corporativos</a>
-        <a href="servicos.html#lazer">Viagens de Lazer</a>
       </div>
       
       <div class="footer-links">
         <h4>Empresa</h4>
         <a href="sobre.html">Sobre Nós</a>
-        <a href="#">Nossos Números</a>
-        <a href="#">Cases de Sucesso</a>
-        <a href="#">Blog</a>
+        <a href="segmentos.html">Segmentos</a>
         <a href="contato.html">Trabalhe Conosco</a>
       </div>
       
       <div class="footer-links">
         <h4>Recursos</h4>
-        <a href="#">Central de Ajuda</a>
         <a href="#">Política de Privacidade</a>
         <a href="#">Termos de Uso</a>
-        <a href="#">Política de Cookies</a>
         <a href="#">LGPD</a>
       </div>
       
       <div class="footer-contact">
         <h4>Contato</h4>
-        <p>&#128231; contato@hospped.com.br</p>
-        <p>&#128222; (88) 9 9999-9999</p>
-        <p>&#128205; Juazeiro do Norte - CE</p>
-        <p>&#128336; Atendimento: Seg-Sex, 8h às 18h</p>
+        <p>contato@hospped.com.br</p>
+        <p>(88) 9 9999-9999</p>
+        <p>Atendimento: Seg-Sex, 8h às 18h</p>
       </div>
     </div>
     
